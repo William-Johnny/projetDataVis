@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { gsap } from 'gsap'
 import { onMounted } from 'vue';
-import Button from '@/components/button.vue';
+import Button from '@/components/Button.vue';
 
 onMounted(()=>{
   const videos = gsap.utils.toArray('.video');
