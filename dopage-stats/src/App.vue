@@ -67,7 +67,24 @@ onMounted(()=>{
         .to("#q3",{duration: 1, opacity: 0, y: '-150'})
         .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
         .to('#isolation', { duration: 1, opacity: 1, y: '-35' })
-        //.to('.guy', { duration: 1, opacity: 1, stagger: 1 })
+        // .to('#guys', { duration: 0, opacity:1 })
+        // .to('.guy', { duration: 1, opacity: 1, stagger: 1 },"<")
+        // .to('#guys', { backgroundColor: "white"},">")
+        // .to('.guy', {  opacity: 1,onComplete: () => {
+        //   console.log("ok");
+        //   const img = document.getElementsByClassName("guy");
+        //   img.src = "@/assets/guyTransparent.png";
+        //             }},"<")
+        // .to("#loading", {
+        //   duration: 5, // Time to fill the bar
+        //   width: "100%", // Animates the width from 0% to 100%
+        //   backgroundColor: "green", // Changes the color from white to green
+        //   ease: "power1.inOut",
+        //   onComplete: () => {
+        //     console.log("Loading Complete!"); // Optional: Action after loading is complete
+        //   }
+        // });
+        .to('#testImg', { duration: 0, opacity: 1})
     });
   });
 });
@@ -153,15 +170,15 @@ setTimeout(() => {
     </div>
 
     <div class="question" id="q2" >
-      <p>As-tu déjà eu un ou des complexes par rapport à ton physique à cause des réseaux ?</p>
+      <p>As tu déjà eu un ou plusieurs complexes par rapport à ton physique ?</p>
       <Button id="test2" title="Oui"/>
       <Button id="test2" title="Non"/>
     </div>
 
     <div class="question" id="q3" >
-      <p>Avez-vous déja espéré avoir le corps d’une célébrité ou d’un influenceur ?</p>
-      <Button id="test3" title="Oui"/>
-      <Button id="test3" title="Non"/>
+      <p>Compares tu ton physique à celui de quelqu’un d’autre ?</p>
+      <Button id="test3" title="Souvent"/>
+      <Button id="test3" title="Rarement"/>
     </div>
 
     <div class="wrapper">
@@ -172,13 +189,22 @@ setTimeout(() => {
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
 
+
   <div id="guys">
-    <img class="guy" src="@/assets/Group.png" alt="">
-    <img class="guy" src="@/assets/Group.png" alt="">
-    <img class="guy" src="@/assets/Group.png" alt="">
-    <img class="guy" src="@/assets/Group.png" alt="">
-    <img class="guy" src="@/assets/Group.png" alt="">
-    <img class="guy" src="@/assets/Group.png" alt="">
+    <div id="loading"></div>
+    <img class="guy" src="@/assets/guy.png" alt="">
+    <img class="guy" src="@/assets/guy.png" alt="">
+    <img class="guy" src="@/assets/guy.png" alt="">
+    <img class="guy" src="@/assets/guy.png" alt="">
+    <img class="guy" src="@/assets/guy.png" alt="">
+    <img class="guy" src="@/assets/guy.png" alt="">
+  </div>
+
+  <div id="celebs">
+    <img class="celeb" src="@/assets/202.png" alt="">
+    <img class="celeb" src="@/assets/204.png" alt="">
+    <img class="celeb" src="@/assets/205.png" alt="">
+    <img class="celeb" src="@/assets/459.png" alt="">
   </div>
 </template>
 
@@ -190,12 +216,34 @@ setTimeout(() => {
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
 }
 
+.celeb{
+  width: 100px;
+  height: auto;
+  margin: 10px;
+}
+
 .videoContainer{
   position: absolute;
   top: 0px;
   left: 0px;
   height: 100%;
   width: 100%;
+}
+
+#celebs{
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  top: 750px;
+}
+
+#loading{
+  width: 0%;
+  height: 100%;
+  background-color: #10EC00;
+  position: absolute;
+  height: 50px;
 }
 
 #testDiv{
@@ -205,15 +253,17 @@ setTimeout(() => {
 }
 
 #guys{
- display: flex;
- justify-content: space-evenly;
- width: 100%;
+  opacity: 0;
+  width: 100%;
+  height: 50px;
 }
 
 .guy{
   opacity: 0;
-  width: 50px;
-  height: auto;
+  width: auto;
+  height: 50px;
+  position: relative;
+  z-index: 2;
 }
 
 .question{
