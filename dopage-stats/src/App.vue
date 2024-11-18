@@ -5,6 +5,8 @@ import { onMounted } from 'vue';
 import Button from '@/components/Button.vue';
 
 onMounted(()=>{
+  document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
+  
   const videos = gsap.utils.toArray('.video');
   let tl = gsap
     .timeline()
@@ -30,8 +32,8 @@ onMounted(()=>{
     
     .to(".video", { duration: 0, opacity: 0 },16)
     
-    .to("#phrase", { duration: 0, opacity: 1 },16)
-    .to("#phrase", { duration: 0, opacity: 0 },18)
+    .to("#stop", { duration: 0, opacity: 1 },16)
+    .to("#stop", { duration: 0, opacity: 0 },18)
     
     
 
@@ -42,7 +44,7 @@ onMounted(()=>{
     
     .to("#q1",{duration: 1, opacity: 1, y: '-50'},">")
 
-  document.querySelectorAll("#test").forEach(function(btn) {
+  document.querySelectorAll(".test").forEach(function(btn) {
     btn.addEventListener("click", function() {
       let tl = gsap
         .timeline()
@@ -63,6 +65,9 @@ onMounted(()=>{
       let tl = gsap
         .timeline()
         .to("#q3",{duration: 1, opacity: 0, y: '-150'})
+        .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
+        .to('#isolation', { duration: 1, opacity: 1, y: '-35' })
+        //.to('.guy', { duration: 1, opacity: 1, stagger: 1 })
     });
   });
 });
@@ -130,7 +135,7 @@ setTimeout(() => {
       
     
 
-    <p id="phrase">STOP</p>
+    <p class="phrase" id="stop">STOP !</p>
 
     <div class="question" id="p1" >
       <p>Toi aussi t'as l'impression que c’est tout le temps la même chose ?</p>
@@ -141,18 +146,22 @@ setTimeout(() => {
     </div>
 
     <div class="question" id="q1" >
-      <p>Pour commencer, êtes-vous...</p>
-      <Button id="test" />
+      <p>Pour commencer, es-tu...</p>
+      <Button class="test" title="Une femme"/>
+      <Button class="test" title="Un homme"/>
+      <Button class="test" title="Autre"/>
     </div>
 
     <div class="question" id="q2" >
       <p>As-tu déjà eu un ou des complexes par rapport à ton physique à cause des réseaux ?</p>
-      <Button id="test2" />
+      <Button id="test2" title="Oui"/>
+      <Button id="test2" title="Non"/>
     </div>
 
     <div class="question" id="q3" >
       <p>Avez-vous déja espéré avoir le corps d’une célébrité ou d’un influenceur ?</p>
-      <Button id="test3"/>
+      <Button id="test3" title="Oui"/>
+      <Button id="test3" title="Non"/>
     </div>
 
     <div class="wrapper">
@@ -160,10 +169,26 @@ setTimeout(() => {
     </div>
   </header>
 
-  <RouterView />
+  <p class="phrase" id="noShame">PAS DE HONTE !</p>
+  <p  id="isolation">Tu n’es pas un cas isolé.</p>
+
+  <div id="guys">
+    <img class="guy" src="@/assets/Group.png" alt="">
+    <img class="guy" src="@/assets/Group.png" alt="">
+    <img class="guy" src="@/assets/Group.png" alt="">
+    <img class="guy" src="@/assets/Group.png" alt="">
+    <img class="guy" src="@/assets/Group.png" alt="">
+    <img class="guy" src="@/assets/Group.png" alt="">
+  </div>
 </template>
 
 <style scoped>
+
+@font-face {
+  font-family: "Baloo 2";
+  src:
+    url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
 
 .videoContainer{
   position: absolute;
@@ -179,24 +204,54 @@ setTimeout(() => {
   height: 100px;
 }
 
+#guys{
+ display: flex;
+ justify-content: space-evenly;
+ width: 100%;
+}
+
+.guy{
+  opacity: 0;
+  width: 50px;
+  height: auto;
+}
+
 .question{
   opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-50% + 100px));
-  color: #10EC00;
+  transform: translate(-50%, calc(-50% + 125px));
+  color: white;
   text-align: center;
-  width: 250px;
+  width: 260px;
 }
 
-#phrase{
+#noShame{
+  transform: translate(-50%, calc(-50% + 150px));
+  font-size: xx-large;
+  width: 225px;
+}
+
+#isolation{
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 125px));
+  color: white;
+  text-align: center;
+}
+
+.phrase{
   opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #10EC00;
+  font-size: xxx-large;
+  font-family: "Baloo 2";
 }
 
 #one{

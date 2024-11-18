@@ -1,5 +1,9 @@
+<script setup>
+defineProps(['title'])
+</script>
+
 <template>
-    <button class="button-3" role="button">Button 3</button>
+    <button class="button-3" role="button">{{ title }} </button>
 </template>
 
 <style>
@@ -13,7 +17,6 @@
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -26,6 +29,7 @@
   touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
+  margin: 10px;
 }
 
 .button-3:focus:not(:focus-visible):not(.focus-visible) {
