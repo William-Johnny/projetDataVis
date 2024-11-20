@@ -17,5 +17,37 @@
         "My child phoned me to tell me they had tested positive. I was on the street when I heard the news. I started to cry. I [have] lost members of my family but when I compare that experience to this, I can say that the moment I learned the news about my child’s positive doping test [it] was the worst moment of my life.",
 
         "During the investigation into my [case], one of my parents was also investigated … My National Anti-Doping Organization [claimed] my parent was involved in [my violation] … My parent was not provided with any assistance either, which was difficult for them mentally."
-    ]
+    ],
+    "celebs":{
+        "women":{
+            "Tashi dans Challengers":{
+                "details": ["Préparation pendant 3 mois","Entraînement avec coach personnel 5 jours par semaine","Adoption d'un régime d'athlèthe pro"],
+                "subtitle": "Interprétée par Zendaya"
+            },
+            "Aline Dessine":{
+                "details": ["Prise de créatine une fois par jour","Prise de trois compléments alimentaires","5 ans de musculation"]
+            },
+            "Ashley Nocera":{
+                "details": ["cinq séances de musculation par semaine et une séance de cardio le samedi, avec repos uniquement le dimanche","Prises de suppléments (CLA, protéine de lactoziome...)","A appris à ce mettre en valeurs sur ses photos"]
+            },
+            "BLACK WIDOW":{
+                "details":["A pris 1 an avant d'atteindre ce physique"," Entraînement intensif avec coach personnel","Jeûnes d'au moins 12h par jour (allant de 14h à 15h parfois)"],
+                "subtitle":"interprétée par Scarlett Johansson"
+            }
+        },
+        "men":{
+            "Togi":{
+                "details": ["Problème de reins, problème de sommeil", "Prend du clenbutérol (généralement un médicament pour les asthmatiques sévères, provoque des insuffisances cardiaques) + du cialis (généralement un médicament pour les troubles de l'érection)", "5300 ng/dcl de testostérone dans son sang, 5x plus élevé qu'un pro. Mais se dope quand même malgré les risques et ses soucis de santé"]
+            },
+            "HUGH JACKMAN":{
+                "details": ["Préparation de 6 mois avec régime et workout intensif", "Pas bu d'eau pendant 36h", "Recouvert de lubrifiant et d'huile"]
+            },
+            "Sam Sulek":{
+                "details": ["Caféine pour la tolérance de la douleur", "Acné sévère à cause des produits dopants"]
+            },
+            "Ronnie Coleman":{
+                "details": ["Eté suivit par des médecins et des nutritionnistes", "Prenait 6 repas par jours", "Buvait 7 à 11 litres d'eau par jours"]
+            }
+        }
+    }
 }

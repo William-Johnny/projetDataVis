@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { gsap } from 'gsap'
 import { onMounted } from 'vue';
 import Button from '@/components/Button.vue';
+import Footer from '@/components/Footer.vue';
 
 onMounted(()=>{
   document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
@@ -102,89 +103,83 @@ setTimeout(() => {
 </script>
 
 <template>
-  <header>
-    <div class="videoContainer" id="videoContainer1">
-      <video class="video" id="one" width="auto" height="100%" autoplay loop>
-      <source src="@/assets/videos/v1.mp4" type="video/mp4">
-      </video> 
-      <video class="video" id="two" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v2.mp4" type="video/mp4">
-      </video> 
-      <video class="video" id="three" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v3.mp4" type="video/mp4">
-      </video> 
-    </div>
+  <div class="videoContainer" id="videoContainer1">
+    <video class="video" id="one" width="auto" height="100%" autoplay loop>
+    <source src="@/assets/videos/v1.mp4" type="video/mp4">
+    </video> 
+    <video class="video" id="two" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v2.mp4" type="video/mp4">
+    </video> 
+    <video class="video" id="three" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v3.mp4" type="video/mp4">
+    </video> 
+  </div>
 
-    <div class="videoContainer" id="videoContainer2">
-      <video class="video" id="four" width="auto" height="100%" autoplay loop>
-      <source src="@/assets/videos/v4.mp4" type="video/mp4">
-      </video> 
-      <video class="video" id="five" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v5.mp4" type="video/mp4">
-      </video> 
-    </div>
-    
-    <div class="videoContainer" id="videoContainer3">
-      <video class="video" id="six" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v6.mp4" type="video/mp4">
-      </video>
-      <video class="video" id="seven" width="auto" height="100%" autoplay loop>
-      <source src="@/assets/videos/v7.mp4" type="video/mp4">
-      </video> 
-    </div>  
+  <div class="videoContainer" id="videoContainer2">
+    <video class="video" id="four" width="auto" height="100%" autoplay loop>
+    <source src="@/assets/videos/v4.mp4" type="video/mp4">
+    </video> 
+    <video class="video" id="five" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v5.mp4" type="video/mp4">
+    </video> 
+  </div>
+  
+  <div class="videoContainer" id="videoContainer3">
+    <video class="video" id="six" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v6.mp4" type="video/mp4">
+    </video>
+    <video class="video" id="seven" width="auto" height="100%" autoplay loop>
+    <source src="@/assets/videos/v7.mp4" type="video/mp4">
+    </video> 
+  </div>  
 
-    <div class="videoContainer" id="videoContainer4">
-      <video class="video" id="eight" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v8.mp4" type="video/mp4">
-      </video> 
-      <video class="video" id="nine" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v9.mp4" type="video/mp4">
-      </video> 
-      <video class="video" id="ten" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v10.mp4" type="video/mp4">
-      </video> 
-      <video class="video" id="eleven" width="auto" height="100%" autoplay loop>
-        <source src="@/assets/videos/v11.mp4" type="video/mp4">
-      </video>
-    </div>
-      
-      
-      
-    
+  <div class="videoContainer" id="videoContainer4">
+    <video class="video" id="eight" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v8.mp4" type="video/mp4">
+    </video> 
+    <video class="video" id="nine" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v9.mp4" type="video/mp4">
+    </video> 
+    <video class="video" id="ten" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v10.mp4" type="video/mp4">
+    </video> 
+    <video class="video" id="eleven" width="auto" height="100%" autoplay loop>
+      <source src="@/assets/videos/v11.mp4" type="video/mp4">
+    </video>
+  </div>
 
-    <p class="phrase" id="stop">STOP !</p>
+  <p class="phrase" id="stop">STOP !</p>
 
-    <div class="question" id="p1" >
-      <p>Toi aussi t'as l'impression que c’est tout le temps la même chose ?</p>
-    </div>
+  <div class="question" id="p1" >
+    <p>Toi aussi t'as l'impression que c’est tout le temps la même chose ?</p>
+  </div>
 
-    <div class="question" id="p2" >
-      <p>Soit ci, soit ça, fait ci, fait ça, devient plus beau, plus grand, plus fort...</p>
-    </div>
+  <div class="question" id="p2" >
+    <p>Soit ci, soit ça, fait ci, fait ça, devient plus beau, plus grand, plus fort...</p>
+  </div>
 
-    <div class="question" id="q1" >
-      <p>Pour commencer, es-tu...</p>
-      <Button class="test" title="Une femme"/>
-      <Button class="test" title="Un homme"/>
-      <Button class="test" title="Autre"/>
-    </div>
+  <div class="question" id="q1" >
+    <p>Pour commencer, es-tu...</p>
+    <Button class="test" title="Une femme"/>
+    <Button class="test" title="Un homme"/>
+    <Button class="test" title="Autre"/>
+  </div>
 
-    <div class="question" id="q2" >
-      <p>As tu déjà eu un ou plusieurs complexes par rapport à ton physique ?</p>
-      <Button id="test2" title="Oui"/>
-      <Button id="test2" title="Non"/>
-    </div>
+  <div class="question" id="q2" >
+    <p>As tu déjà eu un ou plusieurs complexes par rapport à ton physique ?</p>
+    <Button id="test2" title="Oui"/>
+    <Button id="test2" title="Non"/>
+  </div>
 
-    <div class="question" id="q3" >
-      <p>Compares tu ton physique à celui de quelqu’un d’autre ?</p>
-      <Button id="test3" title="Souvent"/>
-      <Button id="test3" title="Rarement"/>
-    </div>
+  <div class="question" id="q3" >
+    <p>Compares tu ton physique à celui de quelqu’un d’autre ?</p>
+    <Button id="test3" title="Souvent"/>
+    <Button id="test3" title="Rarement"/>
+  </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <div class="wrapper">
+    <HelloWorld msg="You did it!" />
+  </div>
 
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
@@ -206,7 +201,10 @@ setTimeout(() => {
     <img class="celeb" src="@/assets/205.png" alt="">
     <img class="celeb" src="@/assets/459.png" alt="">
   </div>
+
+  <!-- <Footer /> -->
 </template>
+
 
 <style scoped>
 
