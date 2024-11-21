@@ -69,7 +69,7 @@ onMounted(()=>{
 
 <template>
 
-  <video id="video" autoplay>
+  <video id="video" autoplay muted>
     <source src="@/assets/intro.mp4" type="video/mp4">
   </video> 
 
