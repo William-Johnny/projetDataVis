@@ -1,9 +1,16 @@
 <script setup>
-defineProps(['title'])
+  defineProps(['title'])
 </script>
 
 <template>
-    <button class="button-3" role="button">{{ title }} </button>
+    <button
+    :class="['button-3', variant, size]"
+    role="button"
+    :disabled="disabled"
+    @click="handleClick"
+  >
+  {{ title }} 
+  </button>
 </template>
 
 <style>
@@ -58,3 +65,33 @@ defineProps(['title'])
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 </style>
+
+<script>
+  export default {
+    name: "ButtonComponent",
+    props: {
+      // Props for customization
+      variant: {
+        type: String,
+        default: "primary", // Options: primary, secondary, danger, etc.
+      },
+      size: {
+        type: String,
+        default: "medium", // Options: small, medium, large
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+    },
+    methods: {
+      handleClick(event) {
+        // Emit a click event unless the button is disabled
+        if (!this.disabled) {
+          this.$emit("mouseup", event);
+        }
+      },
+    },
+  };
+
+</script>

@@ -13,8 +13,6 @@ onMounted(()=>{
     .to("#video", { duration: 0, opacity: 0, onComplete: () => {const element = document.getElementById("video"); element.remove();}},15)
     .to("#stop", { duration: 0, opacity: 1 },15)
     .to("#stop", { duration: 0, opacity: 0 },17)
-    
-    
 
     .to("#p1",{duration: 1, opacity: 1, y: '-50'},18)
     .to("#p1",{duration: 1, opacity: 0, y: '-150'},22)
@@ -27,7 +25,7 @@ onMounted(()=>{
     btn.addEventListener("click", function() {
       let tl = gsap
         .timeline()
-        .to("#q1",{duration: 1, opacity: 0, y: '-50'})
+        .to("#q1",{duration: 1, opacity: 0, y: '-150'})
         .to("#q2",{duration: 1, opacity: 1, y: '-50'})
     });
   });
@@ -87,8 +85,8 @@ onMounted(()=>{
 
   <div class="question" id="q1" >
     <p>Pour commencer, es-tu...</p>
-    <Button class="test" title="Une femme"/>
-    <Button class="test" title="Un homme"/>
+    <Button class="test" title="Une femme" @click="handleClick"/>
+    <Button class="test" title="Un homme"  @click="handleClickMan"/>
     <Button class="test" title="Autre"/>
   </div>
 
@@ -131,6 +129,19 @@ onMounted(()=>{
 
   <!-- <Footer /> -->
 </template>
+
+<script>
+export default {
+  methods: {
+    handleClick() {
+      alert("Woman");
+    },
+    handleClickMan() {
+      alert("Man");
+    },
+  },
+};
+</script>
 
 
 <style scoped>
