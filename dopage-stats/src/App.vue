@@ -69,7 +69,7 @@ onMounted(()=>{
 
 <template>
 
-  <video id="video" width="100%" height="100%" autoplay>
+  <video id="video" autoplay>
     <source src="@/assets/intro.mp4" type="video/mp4">
   </video> 
 
@@ -150,6 +150,15 @@ export default {
   font-family: "Baloo 2";
   src:
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
+
+#video{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 100%;
 }
 
 .celeb{
@@ -260,32 +269,5 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .video {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
 }
 </style>
