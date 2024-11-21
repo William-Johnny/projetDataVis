@@ -1,12 +1,23 @@
 <script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
 import { RouterLink, RouterView } from 'vue-router'
 import { gsap } from 'gsap'
 import { onMounted } from 'vue';
 import Button from '@/components/Button.vue';
 import Footer from '@/components/Footer.vue';
 
+const celebsPhotos=[
+    "m.png",
+    "t.png",
+    "b.png",
+    "w.png",
+]
+
 onMounted(()=>{
   document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
+  const el = document.querySelector("body");
+  el.style.position = "fixed";
   
   let tl = gsap
     .timeline()
@@ -43,25 +54,7 @@ onMounted(()=>{
         .timeline()
         .to("#q3",{duration: 1, opacity: 0, y: '-150'})
         .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
-        .to('#isolation', { duration: 1, opacity: 1, y: '-35' })
-        // .to('#guys', { duration: 0, opacity:1 })
-        // .to('.guy', { duration: 1, opacity: 1, stagger: 1 },"<")
-        // .to('#guys', { backgroundColor: "white"},">")
-        // .to('.guy', {  opacity: 1,onComplete: () => {
-        //   console.log("ok");
-        //   const img = document.getElementsByClassName("guy");
-        //   img.src = "@/assets/guyTransparent.png";
-        //             }},"<")
-        // .to("#loading", {
-        //   duration: 5, // Time to fill the bar
-        //   width: "100%", // Animates the width from 0% to 100%
-        //   backgroundColor: "green", // Changes the color from white to green
-        //   ease: "power1.inOut",
-        //   onComplete: () => {
-        //     console.log("Loading Complete!"); // Optional: Action after loading is complete
-        //   }
-        // });
-        .to('#testImg', { duration: 0, opacity: 1})
+        .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {el.style.removeProperty('position');}})
     });
   });
 });
@@ -109,25 +102,15 @@ onMounted(()=>{
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
 
-
-  <div id="guys">
-    <div id="loading"></div>
-    <img class="guy" src="@/assets/guy.png" alt="">
-    <img class="guy" src="@/assets/guy.png" alt="">
-    <img class="guy" src="@/assets/guy.png" alt="">
-    <img class="guy" src="@/assets/guy.png" alt="">
-    <img class="guy" src="@/assets/guy.png" alt="">
-    <img class="guy" src="@/assets/guy.png" alt="">
-  </div>
-
   <div id="celebs">
-    <img class="celeb" src="@/assets/202.png" alt="">
-    <img class="celeb" src="@/assets/204.png" alt="">
-    <img class="celeb" src="@/assets/205.png" alt="">
-    <img class="celeb" src="@/assets/459.png" alt="">
+    <Swiper>
+      <SwiperSlide v-for="photo in celebsPhotos"> 
+        <img :src="`src/assets/${photo}`" alt="" />
+      </SwiperSlide>
+    </Swiper>
   </div>
 
-  <!-- <Footer /> -->
+  <Footer />
 </template>
 
 <script>
@@ -168,11 +151,9 @@ export default {
 }
 
 #celebs{
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  top: 750px;
+  margin-top: 330%;
+  height: 432px;
+  width: 275px;
 }
 
 #loading{
