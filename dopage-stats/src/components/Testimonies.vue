@@ -26,7 +26,7 @@ import { onMounted } from 'vue';
     display: flex;
     justify-content: center;
     width: 100%;
-    background-image: url("@/assets/bgGreenPoints.png");
+    margin-bottom: 20px;
 }
 
 #testDiv{

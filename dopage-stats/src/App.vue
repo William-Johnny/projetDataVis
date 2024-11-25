@@ -17,12 +17,12 @@ onMounted(()=>{
     text.style.zIndex = "1";
     img.style.zIndex = "0";
 
-    text.addEventListener("mouseup", (e) => {
+    text.addEventListener("click", (e) => {
         text.style.zIndex = "1";
         img.style.zIndex = "0";
     });
 
-    img.addEventListener("mouseup", (e) => {
+    img.addEventListener("click", (e) => {
         text.style.zIndex = "0";
         img.style.zIndex = "1";
     });
@@ -79,7 +79,7 @@ onMounted(()=>{
               onComplete: () => sprite.style.backgroundImage = images[0]
             })
             .to(sprite, { 
-              duration: 0.5, 
+              duration: 0.5,
               backgroundImage: images[1], 
               onComplete: () => {sprite.style.backgroundImage = images[1];}
             });
@@ -96,7 +96,7 @@ onMounted(()=>{
 
 <template>
 
-  <video id="video" autoplay muted>
+  <video id="video" autoplay muted playsinline>
     <source src="@/assets/intro.mp4" type="video/mp4">
   </video> 
 
@@ -151,9 +151,11 @@ onMounted(()=>{
         </swiper>
       </div>
 
-      <Testimonies/>
-
-      <Footer />
+      <div id="bottom">
+        <Testimonies/>
+        <Footer />
+      </div>
+      
   </div>
   
 </template>
@@ -165,6 +167,11 @@ onMounted(()=>{
   font-family: "Baloo 2";
   src:
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
+
+#bottom{
+  background-image: url("@/assets/bgGreenPoints.png");
+  margin-top: 50px;
 }
 
 .notAloneAnim {
@@ -184,12 +191,7 @@ onMounted(()=>{
 }
 
 #restOfBody{
-  margin-top: 135%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 130%;
+  margin-top: 225%;
 }
 
 #celebs{
