@@ -170,7 +170,7 @@ onMounted(()=>{
 }
 
 #bottom{
-  background-image: url("@/assets/bgGreenPoints.png");
+  background-image: url("/assets/bgGreenPoints.png");
   margin-top: 50px;
 }
 
