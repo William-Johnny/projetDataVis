@@ -73,12 +73,12 @@ onMounted(()=>{
           'url("src/assets/notAloneAnimation/otherGuy.png")'
         ];
           let animation = gsap.timeline({ repeat: -1})
-            .to(sprite, { 
-              backgroundImage: images[0], 
-              duration: 0.5, 
+            .to(sprite, {
+              backgroundImage: images[0],
+              duration: 0.5,
               onComplete: () => sprite.style.backgroundImage = images[0]
             })
-            .to(sprite, { 
+            .to(sprite, {
               duration: 0.5,
               backgroundImage: images[1], 
               onComplete: () => {sprite.style.backgroundImage = images[1];}
@@ -146,7 +146,7 @@ onMounted(()=>{
         :initial-slide= "1"
         >
           <SwiperSlide v-for="photo in celebsPhotos"> 
-            <img :src="`src/assets/${photo}`" alt="" />
+            <img :src="`dopage-stats/src/assets/${photo}`" alt="" />
           </SwiperSlide>
         </swiper>
       </div>
