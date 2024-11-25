@@ -1,20 +1,32 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
-import { RouterLink, RouterView } from 'vue-router'
 import { gsap } from 'gsap'
 import { onMounted } from 'vue';
 import Button from '@/components/Button.vue';
 import Footer from '@/components/Footer.vue';
+import Testimonies from '@/components/Testimonies.vue';
 
 const celebsPhotos=[
-    "m.png",
     "t.png",
-    "b.png",
-    "w.png",
 ]
 
 onMounted(()=>{
+  const text = document.querySelector("#text");
+    const img = document.querySelector("#img");
+    text.style.zIndex = "1";
+    img.style.zIndex = "0";
+
+    text.addEventListener("mouseup", (e) => {
+        text.style.zIndex = "1";
+        img.style.zIndex = "0";
+    });
+
+    img.addEventListener("mouseup", (e) => {
+        text.style.zIndex = "0";
+        img.style.zIndex = "1";
+    });
+
   document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
   const el = document.querySelector("body");
   el.style.position = "fixed";
@@ -30,31 +42,53 @@ onMounted(()=>{
     .to("#p2",{duration: 1, opacity: 1, y: '-50'},">")
     .to("#p2",{duration: 1, opacity: 0, y: '-150'},">4")
     
-    .to("#q1",{duration: 1, opacity: 1, y: '-50'},">")
+    .to("#q3",{duration: 1, opacity: 1, y: '-50'},">")
 
-  document.querySelectorAll(".test").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      let tl = gsap
-        .timeline()
-        .to("#q1",{duration: 1, opacity: 0, y: '-150'})
-        .to("#q2",{duration: 1, opacity: 1, y: '-50'})
-    });
-  });
-  document.querySelectorAll("#test2").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      let tl = gsap
-        .timeline()
-        .to("#q2",{duration: 1, opacity: 0, y: '-150'})
-        .to("#q3",{duration: 1, opacity: 1, y: '-50'})
-    });
-  });
+  // document.querySelectorAll(".test").forEach(function(btn) {
+  //   btn.addEventListener("click", function() {
+  //     let tl = gsap
+  //       .timeline()
+  //       .to("#q1",{duration: 1, opacity: 0, y: '-150'})
+  //       .to("#q2",{duration: 1, opacity: 1, y: '-50'})
+  //   });
+  // });
+  // document.querySelectorAll("#test2").forEach(function(btn) {
+  //   btn.addEventListener("click", function() {
+  //     let tl = gsap
+  //       .timeline()
+  //       .to("#q2",{duration: 1, opacity: 0, y: '-150'})
+  //       .to("#q3",{duration: 1, opacity: 1, y: '-50'})
+  //   });
+  // });
   document.querySelectorAll("#test3").forEach(function(btn) {
     btn.addEventListener("click", function() {
       let tl = gsap
         .timeline()
         .to("#q3",{duration: 1, opacity: 0, y: '-150'})
         .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
-        .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {el.style.removeProperty('position');}})
+        .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {
+          const sprite = document.getElementById('notAloneAnim');
+          const images = [
+          'url("src/assets/notAloneAnimation/guy.png")',
+          'url("src/assets/notAloneAnimation/otherGuy.png")'
+        ];
+          let animation = gsap.timeline({ repeat: -1})
+            .to(sprite, { 
+              backgroundImage: images[0], 
+              duration: 0.5, 
+              onComplete: () => sprite.style.backgroundImage = images[0]
+            })
+            .to(sprite, { 
+              duration: 0.5, 
+              backgroundImage: images[1], 
+              onComplete: () => {sprite.style.backgroundImage = images[1];}
+            });
+            animation.play();
+            sprite.addEventListener('click', () => {
+              const element = document.getElementById("notAloneAnim"); element.remove(); el.style.removeProperty('position');
+            });
+          }})
+        
     });
   });
 });
@@ -76,7 +110,7 @@ onMounted(()=>{
     <p>Soit ci, soit ça, fait ci, fait ça, devient plus beau, plus grand, plus fort...</p>
   </div>
 
-  <div class="question" id="q1" >
+  <!-- <div class="question" id="q1" >
     <p>Pour commencer, es-tu...</p>
     <Button class="test" title="Une femme" @click="handleClick"/>
     <Button class="test" title="Un homme"  @click="handleClickMan"/>
@@ -87,7 +121,7 @@ onMounted(()=>{
     <p>As tu déjà eu un ou plusieurs complexes par rapport à ton physique ?</p>
     <Button id="test2" title="Oui"/>
     <Button id="test2" title="Non"/>
-  </div>
+  </div> -->
 
   <div class="question" id="q3" >
     <p>Compares tu ton physique à celui de quelqu’un d’autre ?</p>
@@ -101,30 +135,28 @@ onMounted(()=>{
 
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
+  <div class="notAloneAnim" id="notAloneAnim"></div>
 
-  <div id="celebs">
-    <Swiper>
-      <SwiperSlide v-for="photo in celebsPhotos"> 
-        <img :src="`src/assets/${photo}`" alt="" />
-      </SwiperSlide>
-    </Swiper>
+  <div id="restOfBody">
+    <div id="celebs">
+        <swiper
+        :slides-per-view="1.4"
+        :space-between="20"
+        :centered-slides="true"
+        :initial-slide= "1"
+        >
+          <SwiperSlide v-for="photo in celebsPhotos"> 
+            <img :src="`src/assets/${photo}`" alt="" />
+          </SwiperSlide>
+        </swiper>
+      </div>
+
+      <Testimonies/>
+
+      <Footer />
   </div>
-
-  <Footer />
+  
 </template>
-
-<script>
-export default {
-  methods: {
-    handleClick() {
-      alert("Woman");
-    },
-    handleClickMan() {
-      alert("Man");
-    },
-  },
-};
-</script>
 
 
 <style scoped>
@@ -133,6 +165,13 @@ export default {
   font-family: "Baloo 2";
   src:
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
+
+.notAloneAnim {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  cursor: pointer;
 }
 
 #video{
@@ -144,16 +183,19 @@ export default {
   height: 100%;
 }
 
-.celeb{
-  width: 100px;
-  height: auto;
-  margin: 10px;
+#restOfBody{
+  margin-top: 135%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 130%;
 }
 
 #celebs{
-  margin-top: 330%;
+  /* margin-top: 240%; */
   height: 432px;
-  width: 275px;
+  width: 384px;
 }
 
 #loading{
@@ -162,12 +204,6 @@ export default {
   background-color: #10EC00;
   position: absolute;
   height: 50px;
-}
-
-#testDiv{
-  background-color: black;
-  width: 100px;
-  height: 100px;
 }
 
 #guys{

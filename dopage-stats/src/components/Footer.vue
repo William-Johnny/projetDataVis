@@ -23,6 +23,8 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 footer{
+    /* position: absolute; */
+    /* top: 171%; */
     background-color: #FEFFF2;
     padding: 20px;
 }
@@ -30,6 +32,5 @@ footer{
 #titles{
     display: flex;
     justify-content: space-between;
-    width: 100%;
 }
 </style>
