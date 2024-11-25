@@ -146,7 +146,7 @@ onMounted(()=>{
         :initial-slide= "1"
         >
           <SwiperSlide v-for="photo in celebsPhotos"> 
-            <img :src="`dopage-stats/src/assets/${photo}`" alt="" />
+            <img :src="`projetDataVis/dopage-stats/src/assets/${photo}`" alt="" />
           </SwiperSlide>
         </swiper>
       </div>
