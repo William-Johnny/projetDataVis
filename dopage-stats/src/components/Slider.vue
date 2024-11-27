@@ -13,7 +13,7 @@ import 'swiper/css';
         >
             <SwiperSlide v-for="photo in celebsPhotosRecto" :key="photo[1]">
             <img
-                :src="`../../public/assets/celebs/${photo[0]}`"
+                :src="`/assets/celebs/${photo[0]}`"
                 alt=""
                 class="celebImg"
                 :id="photo[1]"
