@@ -71,8 +71,8 @@ onMounted(()=>{
     .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {
       const sprite = document.getElementById('notAloneAnim');
       const images = [
-      'url("../public/assets/notAloneAnimation/guy.png")',
-      'url("../public/assets/notAloneAnimation/otherGuy.png")'
+      'url("/assets/notAloneAnimation/guy.png")',
+      'url("/assets/notAloneAnimation/otherGuy.png")'
     ];
       let animation = gsap.timeline({ repeat: -1})
         .to(sprite, {
@@ -189,6 +189,7 @@ onMounted(()=>{
 #bottom{
   background-image: url("/assets/bgGreenPoints.png");
   margin-top: 50px;
+  background-size: cover;
 }
 
 .notAloneAnim {
