@@ -23,7 +23,7 @@ const alternatives=[
             :initial-slide= "1"
             >
             <SwiperSlide v-for="photo in alternatives"> 
-                <img :src="`../../public/assets/alternatives/${photo}`" alt="" class="slideImgs"/>
+                <img :src="`/assets/alternatives/${photo}`" alt="" class="slideImgs"/>
             </SwiperSlide>
             </swiper>
         </div>
