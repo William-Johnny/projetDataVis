@@ -6,26 +6,56 @@ import { onMounted } from 'vue';
 import Button from '@/components/Button.vue';
 import Footer from '@/components/Footer.vue';
 import Testimonies from '@/components/Testimonies.vue';
+import Alternatives from '@/components/Alternatives.vue';
+import EffectOnBody from '@/components/EffectOnBody.vue';
 
-const celebsPhotos=[
-    "t.png",
-]
+const celebsPhotosRecto=[["carteAshley1.png",0], ["carteBlackWidow1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
+const celebsPhotosVerso=[["carteAshley1.png",0], ["carteRonnie1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
+
+const turnCard =(id) =>{
+  celebsPhotosRecto[id]=celebsPhotosVerso[id]
+  console.log(celebsPhotosRecto);
+}
+
+let n=0;
+if (n>celebsPhotosRecto.length) {
+  n=0;
+}
 
 onMounted(()=>{
+  const celebImg = document.querySelectorAll(".celebImg");
+  celebImg.forEach((el)=>{
+      
+      el.addEventListener("click",(e) => {
+          turnCard(el.id);
+      });
+      
+  });
+
   const text = document.querySelector("#text");
-    const img = document.querySelector("#img");
-    text.style.zIndex = "1";
-    img.style.zIndex = "0";
+  const img = document.querySelector("#img");
+  text.style.zIndex = "1";
+  img.style.zIndex = "0";
 
-    text.addEventListener("click", (e) => {
-        text.style.zIndex = "1";
-        img.style.zIndex = "0";
-    });
+  text.addEventListener("click", (e) => {
+      text.style.zIndex = "1";
+      img.style.zIndex = "0";
+  });
 
-    img.addEventListener("click", (e) => {
-        text.style.zIndex = "0";
-        img.style.zIndex = "1";
-    });
+  img.addEventListener("click", (e) => {
+      text.style.zIndex = "0";
+      img.style.zIndex = "1";
+  });
+
+  // const men = document.getElementById('men');
+  // men.addEventListener('click', () => {
+  //   celebsPhotos=[]
+  // });
+
+  // const women = document.getElementById('women');
+  // women.addEventListener('click', () => {
+  //   celebsPhotos=[]
+  // });
 
   document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
   const el = document.querySelector("body");
@@ -41,56 +71,30 @@ onMounted(()=>{
     .to("#p1",{duration: 1, opacity: 0, y: '-150'},22)
     .to("#p2",{duration: 1, opacity: 1, y: '-50'},">")
     .to("#p2",{duration: 1, opacity: 0, y: '-150'},">4")
-    
-    .to("#q3",{duration: 1, opacity: 1, y: '-50'},">")
 
-  // document.querySelectorAll(".test").forEach(function(btn) {
-  //   btn.addEventListener("click", function() {
-  //     let tl = gsap
-  //       .timeline()
-  //       .to("#q1",{duration: 1, opacity: 0, y: '-150'})
-  //       .to("#q2",{duration: 1, opacity: 1, y: '-50'})
-  //   });
-  // });
-  // document.querySelectorAll("#test2").forEach(function(btn) {
-  //   btn.addEventListener("click", function() {
-  //     let tl = gsap
-  //       .timeline()
-  //       .to("#q2",{duration: 1, opacity: 0, y: '-150'})
-  //       .to("#q3",{duration: 1, opacity: 1, y: '-50'})
-  //   });
-  // });
-  document.querySelectorAll("#test3").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      let tl = gsap
-        .timeline()
-        .to("#q3",{duration: 1, opacity: 0, y: '-150'})
-        .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
-        .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {
-          const sprite = document.getElementById('notAloneAnim');
-          const images = [
-          'url("src/assets/notAloneAnimation/guy.png")',
-          'url("src/assets/notAloneAnimation/otherGuy.png")'
-        ];
-          let animation = gsap.timeline({ repeat: -1})
-            .to(sprite, {
-              backgroundImage: images[0],
-              duration: 0.5,
-              onComplete: () => sprite.style.backgroundImage = images[0]
-            })
-            .to(sprite, {
-              duration: 0.5,
-              backgroundImage: images[1], 
-              onComplete: () => {sprite.style.backgroundImage = images[1];}
-            });
-            animation.play();
-            sprite.addEventListener('click', () => {
-              const element = document.getElementById("notAloneAnim"); element.remove(); el.style.removeProperty('position');
-            });
-          }})
-        
-    });
-  });
+    .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
+    .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {
+      const sprite = document.getElementById('notAloneAnim');
+      const images = [
+      'url("src/assets/notAloneAnimation/guy.png")',
+      'url("src/assets/notAloneAnimation/otherGuy.png")'
+    ];
+      let animation = gsap.timeline({ repeat: -1})
+        .to(sprite, {
+          backgroundImage: images[0],
+          duration: 0.5,
+          onComplete: () => sprite.style.backgroundImage = images[0]
+        })
+        .to(sprite, {
+          duration: 0.5,
+          backgroundImage: images[1], 
+          onComplete: () => {sprite.style.backgroundImage = images[1];}
+        });
+        animation.play();
+        sprite.addEventListener('click', () => {
+          const element = document.getElementById("notAloneAnim"); element.remove(); el.style.removeProperty('position');
+        });
+      }})
 });
 </script>
 
@@ -123,12 +127,6 @@ onMounted(()=>{
     <Button id="test2" title="Non"/>
   </div> -->
 
-  <div class="question" id="q3" >
-    <p>Compares tu ton physique à celui de quelqu’un d’autre ?</p>
-    <Button id="test3" title="Souvent"/>
-    <Button id="test3" title="Rarement"/>
-  </div>
-
   <div class="wrapper">
     <HelloWorld msg="You did it!" />
   </div>
@@ -138,21 +136,34 @@ onMounted(()=>{
   <div class="notAloneAnim" id="notAloneAnim"></div>
 
   <div id="restOfBody">
+    <img :src="`src/assets/graph.png`" alt="" class="decoration">
+    <img :src="`src/assets/deco.png`" alt="" class="decoration">
+    <!-- <div class="question" id="q3" >
+      <p>Par exemple, si tu Etais apte A choisir ton physique de rEve, quel serait ton choix ?</p>
+      <Button id="men" title="Corps masculin"/>
+      <Button id="women" title="Corps féminin"/>
+    </div> -->
     <div id="celebs">
         <swiper
-        :slides-per-view="1.4"
-        :space-between="20"
+        :slides-per-view="1.6"
+        :space-between="40"
         :centered-slides="true"
         :initial-slide= "1"
         >
-          <SwiperSlide v-for="photo in celebsPhotos"> 
-            <img :src="`@/assets/${photo}`" alt="" />
+          <SwiperSlide v-for="photo in celebsPhotosRecto">
+            <img :src="`src/assets/celebs/${photo[0]}`" alt="" class="celebImg" :id="`${photo[1]}`"/>
           </SwiperSlide>
         </swiper>
-      </div>
+    </div>
+
+    <div id="objectivePositionning">
+      <img :src="`src/assets/objectives.png`" alt="" class="decoration">
+    </div>
 
       <div id="bottom">
+        <EffectOnBody/>
         <Testimonies/>
+        <Alternatives/>
         <Footer />
       </div>
       
@@ -167,6 +178,21 @@ onMounted(()=>{
   font-family: "Baloo 2";
   src:
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
+
+#objectivePositionning{
+  height: 432px;
+  width: 384px;
+}
+
+.decoration{
+  margin-bottom: 75px;
+  margin-top: 75px;
+}
+
+.celebImg{
+  width: 225px;
+  height: 350px;
 }
 
 #bottom{
@@ -192,6 +218,9 @@ onMounted(()=>{
 
 #restOfBody{
   margin-top: 225%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #celebs{
