@@ -13,7 +13,7 @@ const alternatives=[
             <p>Mais</p>
             <p>tout n'est pas perdu</p>
             <p id="end">Il y a des issues et des solutions</p>
-            <img src="../assets/rectangle.png" alt="">
+            <img src="../../public/assets/rectangle.png" alt="">
         </div>
         <div id="alternativeImages">
             <swiper
