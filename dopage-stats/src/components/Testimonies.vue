@@ -6,7 +6,7 @@ import { onMounted } from 'vue';
     <div id="positionDiv">
         <div id="testDiv">
             <div id="img" @click="handleClick">
-                <img src="@/assets/sideEffects/hand.png" alt="">
+                <img src="../../public/assets/sideEffects/hand.png" alt="">
             </div>
             <div id="text" @click="handleClick">
                 <p>Au début, je me sentais très bien, je dormais très bien...

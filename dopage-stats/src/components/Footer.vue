@@ -5,8 +5,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
     <footer>
         <div>
-            <img src="@/assets/webLogo.png" alt="">
-            <img src="@/assets/rest.png" alt="">
+            <img src="../../public//assets/webLogo.png" alt="">
+            <img src="../../public//assets/rest.png" alt="">
         </div>
         <div id="titles"><p>Contact</p><p>Suivez-nous</p></div>
         <div>

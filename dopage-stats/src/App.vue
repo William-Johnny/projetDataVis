@@ -1,6 +1,4 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
 import { gsap } from 'gsap'
 import { onMounted } from 'vue';
 import Button from '@/components/Button.vue';
@@ -8,29 +6,26 @@ import Footer from '@/components/Footer.vue';
 import Testimonies from '@/components/Testimonies.vue';
 import Alternatives from '@/components/Alternatives.vue';
 import EffectOnBody from '@/components/EffectOnBody.vue';
+import Slider from '@/components/Slider.vue';
 
 const celebsPhotosRecto=[["carteAshley1.png",0], ["carteBlackWidow1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
 const celebsPhotosVerso=[["carteAshley1.png",0], ["carteRonnie1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
 
-const turnCard =(id) =>{
-  celebsPhotosRecto[id]=celebsPhotosVerso[id]
-  console.log(celebsPhotosRecto);
-}
-
-let n=0;
-if (n>celebsPhotosRecto.length) {
-  n=0;
-}
+// const turnCard =(id) =>{
+//   console.log(celebsPhotosRecto[id]);
+//   celebsPhotosRecto[id]=celebsPhotosVerso[id]
+//   console.log(celebsPhotosRecto[id]);
+// }
 
 onMounted(()=>{
-  const celebImg = document.querySelectorAll(".celebImg");
-  celebImg.forEach((el)=>{
+  // const celebImg = document.querySelectorAll(".celebImg");
+  // celebImg.forEach((el)=>{
       
-      el.addEventListener("click",(e) => {
-          turnCard(el.id);
-      });
+  //     el.addEventListener("click",(e) => {
+  //         turnCard(el.id);
+  //     });
       
-  });
+  // });
 
   const text = document.querySelector("#text");
   const img = document.querySelector("#img");
@@ -76,8 +71,8 @@ onMounted(()=>{
     .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {
       const sprite = document.getElementById('notAloneAnim');
       const images = [
-      'url("src/assets/notAloneAnimation/guy.png")',
-      'url("src/assets/notAloneAnimation/otherGuy.png")'
+      'url("../public/assets/notAloneAnimation/guy.png")',
+      'url("../public/assets/notAloneAnimation/otherGuy.png")'
     ];
       let animation = gsap.timeline({ repeat: -1})
         .to(sprite, {
@@ -101,7 +96,7 @@ onMounted(()=>{
 <template>
 
   <video id="video" autoplay muted playsinline>
-    <source src="@/assets/intro.mp4" type="video/mp4">
+    <source src="../public/assets/intro.mp4" type="video/mp4">
   </video> 
 
   <p class="phrase" id="stop">STOP !</p>
@@ -136,15 +131,15 @@ onMounted(()=>{
   <div class="notAloneAnim" id="notAloneAnim"></div>
 
   <div id="restOfBody">
-    <img :src="`src/assets/graph.png`" alt="" class="decoration">
-    <img :src="`src/assets/deco.png`" alt="" class="decoration">
+    <img :src="`assets/graph.png`" alt="" class="decoration">
+    <img :src="`assets/deco.png`" alt="" class="decoration">
     <!-- <div class="question" id="q3" >
       <p>Par exemple, si tu Etais apte A choisir ton physique de rEve, quel serait ton choix ?</p>
       <Button id="men" title="Corps masculin"/>
       <Button id="women" title="Corps féminin"/>
     </div> -->
-    <div id="celebs">
-        <swiper
+    <!-- <div id="celebs"> -->
+        <!-- <swiper
         :slides-per-view="1.6"
         :space-between="40"
         :centered-slides="true"
@@ -153,11 +148,12 @@ onMounted(()=>{
           <SwiperSlide v-for="photo in celebsPhotosRecto">
             <img :src="`src/assets/celebs/${photo[0]}`" alt="" class="celebImg" :id="`${photo[1]}`"/>
           </SwiperSlide>
-        </swiper>
-    </div>
+        </swiper> -->
+        <Slider/>
+    <!-- </div> -->
 
     <div id="objectivePositionning">
-      <img :src="`src/assets/objectives.png`" alt="" class="decoration">
+      <img :src="`assets/objectives.png`" alt="" class="decoration">
     </div>
 
       <div id="bottom">
@@ -190,11 +186,6 @@ onMounted(()=>{
   margin-top: 75px;
 }
 
-.celebImg{
-  width: 225px;
-  height: 350px;
-}
-
 #bottom{
   background-image: url("/assets/bgGreenPoints.png");
   margin-top: 50px;
@@ -205,6 +196,9 @@ onMounted(()=>{
   height: 100px;
   background-size: cover;
   cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 #video{
@@ -221,12 +215,6 @@ onMounted(()=>{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#celebs{
-  /* margin-top: 240%; */
-  height: 432px;
-  width: 384px;
 }
 
 #loading{
