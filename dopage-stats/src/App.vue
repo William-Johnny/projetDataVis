@@ -132,26 +132,10 @@ onMounted(()=>{
 
   <div id="restOfBody">
     <img :src="`assets/graph.png`" alt="" class="decoration">
-    <img :src="`assets/deco.png`" alt="" class="decoration">
-    <!-- <div class="question" id="q3" >
-      <p>Par exemple, si tu Etais apte A choisir ton physique de rEve, quel serait ton choix ?</p>
-      <Button id="men" title="Corps masculin"/>
-      <Button id="women" title="Corps féminin"/>
-    </div> -->
-    <!-- <div id="celebs"> -->
-        <!-- <swiper
-        :slides-per-view="1.6"
-        :space-between="40"
-        :centered-slides="true"
-        :initial-slide= "1"
-        >
-          <SwiperSlide v-for="photo in celebsPhotosRecto">
-            <img :src="`src/assets/celebs/${photo[0]}`" alt="" class="celebImg" :id="`${photo[1]}`"/>
-          </SwiperSlide>
-        </swiper> -->
-        <Slider/>
-    <!-- </div> -->
-
+    <div id="positionMskn">
+      <img :src="`assets/deco.png`" alt="" class="decoration">
+    </div>
+    <Slider/>
     <div id="objectivePositionning">
       <img :src="`assets/objectives.png`" alt="" class="decoration">
     </div>
@@ -174,6 +158,12 @@ onMounted(()=>{
   font-family: "Baloo 2";
   src:
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
+
+#positionMskn{
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 #objectivePositionning{

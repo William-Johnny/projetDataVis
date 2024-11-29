@@ -1,8 +1,15 @@
+<script setup>
+
+    function displayBody(id) {
+        console.log(id);
+    }
+</script>
+
 <template>
     <div id="filterBtn">
-        <img :src="`src/assets/objectiveFilter1.png`" alt="" class="filter"/>
-        <img :src="`src/assets/objectiveFilter2.png`" alt="" class="filter"/>
-        <img :src="`src/assets/objectiveFilter3.png`" alt="" class="filter"/>
+        <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="displayBody('muscle')"/>
+        <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" @click="displayBody('fat')"/>
+        <img :src="`/assets/objectiveFilter3.png`" alt="" class="filter" id="expand" @click="displayBody('expand')"/>
     </div>
 </template>
 
