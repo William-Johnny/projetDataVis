@@ -1,5 +1,4 @@
 <script setup>
-
     function displayBody(id) {
         console.log(id);
     }

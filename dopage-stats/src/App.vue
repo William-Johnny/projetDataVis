@@ -5,17 +5,11 @@ import Button from '@/components/Button.vue';
 import Footer from '@/components/Footer.vue';
 import Testimonies from '@/components/Testimonies.vue';
 import Alternatives from '@/components/Alternatives.vue';
-import EffectOnBody from '@/components/EffectOnBody.vue';
+import objectiveFilter from '@/components/Modal.vue';
 import Slider from '@/components/Slider.vue';
 
 const celebsPhotosRecto=[["carteAshley1.png",0], ["carteBlackWidow1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
 const celebsPhotosVerso=[["carteAshley1.png",0], ["carteRonnie1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
-
-// const turnCard =(id) =>{
-//   console.log(celebsPhotosRecto[id]);
-//   celebsPhotosRecto[id]=celebsPhotosVerso[id]
-//   console.log(celebsPhotosRecto[id]);
-// }
 
 onMounted(()=>{
   // const celebImg = document.querySelectorAll(".celebImg");
@@ -141,7 +135,12 @@ onMounted(()=>{
     </div>
 
       <div id="bottom">
-        <EffectOnBody/>
+        <div id="filterBtn">
+            <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="showModal()"/>
+            <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" @click="displayBody('fat')"/>
+            <img :src="`/assets/objectiveFilter3.png`" alt="" class="filter" id="expand" @click="displayBody('expand')"/>
+        </div>
+        <p v-if="showModal()" >ok</p>
         <Testimonies/>
         <Alternatives/>
         <Footer />
@@ -151,6 +150,14 @@ onMounted(()=>{
   
 </template>
 
+<script>
+let bool =  true;
+const showModal=()=> {
+  bool=!bool
+  console.log(bool);
+  return bool
+}
+</script>
 
 <style scoped>
 
@@ -158,6 +165,18 @@ onMounted(()=>{
   font-family: "Baloo 2";
   src:
     url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+}
+
+#filterBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.filter{
+    width: 310px;
 }
 
 #positionMskn{
