@@ -97,19 +97,6 @@ onMounted(()=>{
     <p>Soit ci, soit ça, fait ci, fait ça, devient plus beau, plus grand, plus fort...</p>
   </div>
 
-  <!-- <div class="question" id="q1" >
-    <p>Pour commencer, es-tu...</p>
-    <Button class="test" title="Une femme" @click="handleClick"/>
-    <Button class="test" title="Un homme"  @click="handleClickMan"/>
-    <Button class="test" title="Autre"/>
-  </div>
-
-  <div class="question" id="q2" >
-    <p>As tu déjà eu un ou plusieurs complexes par rapport à ton physique ?</p>
-    <Button id="test2" title="Oui"/>
-    <Button id="test2" title="Non"/>
-  </div> -->
-
   <div class="wrapper">
     <HelloWorld msg="You did it!" />
   </div>
@@ -120,6 +107,13 @@ onMounted(()=>{
   <img src="/assets/mecClignoteGif.gif" alt="" id="solo">
 
   <div id="restOfBody">
+    <div id="balanceDiv">
+      <img :src="`assets/balance.png`" alt="">
+    </div>
+    <div id="septUnDiv">
+      <p id="septUn">71%</p>
+    </div>
+    <p>font “quelque chose” concernant leurs poids</p>
     <img :src="`assets/diag.gif`" alt="" class="decoration" id="diag">
     <div id="positionMskn">
       <img :src="`assets/deco.png`" alt="" class="decoration">
@@ -127,14 +121,13 @@ onMounted(()=>{
     
     <Slider/>
     <div id="objectivePositionning">
-      <img :src="`assets/objectives.png`" alt="" class="decoration">
+      <img :src="`assets/objectives.png`" alt="">
     </div>
 
       <div id="bottom">
         <div id="filterBtn">
             <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="bodyDisplayed=true"/>
             <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" />
-            <img :src="`/assets/objectiveFilter3.png`" alt="" class="filter" id="expand" />
         </div>
         
         <div v-if="bodyDisplayed" id="bodyActivity">
@@ -177,9 +170,29 @@ export default {
 <style scoped>
 
 @font-face {
-  font-family: "Baloo 2";
+  font-family: "Black Han Sans";
   src:
     url("@/assets/BlackHanSans-Regular.ttf");
+}
+
+#balanceDiv{
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  padding-left: 50px;
+}
+
+#septUnDiv{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+#septUn{
+  font-family: "Black Han Sans";
+  color: #10EC00;
+  font-size: 100px;
+  margin-right: 85px;
 }
 
 #steroidsPics{
@@ -302,7 +315,7 @@ export default {
 }
 
 #objectivePositionning{
-  height: 432px;
+  height: 289px;;
   width: 384px;
 }
 
@@ -368,7 +381,7 @@ export default {
 #noShame{
   transform: translate(-50%, calc(-50% + 150px));
   font-size: xx-large;
-  width: 225px;
+  width: 290px;
 }
 
 #isolation{
@@ -389,7 +402,7 @@ export default {
   transform: translate(-50%, -50%);
   color: #10EC00;
   font-size: xxx-large;
-  font-family: "Baloo 2";
+  font-family: "Black Han Sans";
 }
 
 header {
