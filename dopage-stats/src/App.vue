@@ -103,7 +103,7 @@ onMounted(()=>{
 
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
-  <img src="`/assets/iso.gif`" alt="" id="iso"/>
+  <img src="/assets/iso.gif" alt="" id="iso"/>
   <img src="/assets/mecClignoteGif.gif" alt="" id="solo">
 
   <div id="restOfBody">
