@@ -5,26 +5,18 @@ import Button from '@/components/Button.vue';
 import Footer from '@/components/Footer.vue';
 import Testimonies from '@/components/Testimonies.vue';
 import Alternatives from '@/components/Alternatives.vue';
+import Cursor from '@/components/Cursor.vue';
 import objectiveFilter from '@/components/Modal.vue';
 import Slider from '@/components/Slider.vue';
 
-const celebsPhotosRecto=[["carteAshley1.png",0], ["carteBlackWidow1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
-const celebsPhotosVerso=[["carteAshley1.png",0], ["carteRonnie1.png",1], ["carteRonnie1.png",2], ["carteWolverine1.png",3]];
-
 onMounted(()=>{
-  // const celebImg = document.querySelectorAll(".celebImg");
-  // celebImg.forEach((el)=>{
-      
-  //     el.addEventListener("click",(e) => {
-  //         turnCard(el.id);
-  //     });
-      
-  // });
 
   const text = document.querySelector("#text");
   const img = document.querySelector("#img");
+  const rest = document.getElementById("restOfBody");
   text.style.zIndex = "1";
   img.style.zIndex = "0";
+  rest.style.marginTop="225%";
 
   text.addEventListener("click", (e) => {
       text.style.zIndex = "1";
@@ -62,28 +54,30 @@ onMounted(()=>{
     .to("#p2",{duration: 1, opacity: 0, y: '-150'},">4")
 
     .to('#noShame', { duration: 1, opacity: 1, y: '-75' })
-    .to('#isolation', { duration: 1, opacity: 1, y: '-35',onComplete: () => {
-      const sprite = document.getElementById('notAloneAnim');
-      const images = [
-      'url("/assets/notAloneAnimation/guy.png")',
-      'url("/assets/notAloneAnimation/otherGuy.png")'
-    ];
-      let animation = gsap.timeline({ repeat: -1})
-        .to(sprite, {
-          backgroundImage: images[0],
-          duration: 0.5,
-          onComplete: () => sprite.style.backgroundImage = images[0]
-        })
-        .to(sprite, {
-          duration: 0.5,
-          backgroundImage: images[1], 
-          onComplete: () => {sprite.style.backgroundImage = images[1];}
-        });
-        animation.play();
-        sprite.addEventListener('click', () => {
-          const element = document.getElementById("notAloneAnim"); element.remove(); el.style.removeProperty('position');
-        });
-      }})
+    .to('#isolation', { duration: 1, opacity: 1, y: '-35'})
+    .to('#solo', { duration: 0, opacity: 1, onComplete: () => {
+      const solo = document.getElementById("solo");
+      const isolation = document.getElementById("isolation");
+      const noShame = document.getElementById("noShame");
+      noShame.remove();
+      isolation.remove();
+      solo.addEventListener('click', () => {
+        const solo = document.getElementById("solo");
+        solo.remove();
+        let tl = gsap
+        .timeline()
+        .to('#iso',{duration: 0, opacity: 1, onComplete:()=>{
+          const sprite = document.getElementById("iso");
+          const rest = document.getElementById("restOfBody");
+          const el = document.querySelector("body");
+          sprite.addEventListener('click', () => {
+            const element = document.getElementById("iso"); element.remove();
+            rest.style.removeProperty('margin-top');
+            el.style.removeProperty('position');
+          });}, 
+      })
+      })
+    }})
 });
 </script>
 
@@ -122,13 +116,15 @@ onMounted(()=>{
 
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
-  <div class="notAloneAnim" id="notAloneAnim"></div>
+  <img src="`/assets/iso.gif`" alt="" id="iso"/>
+  <img src="/assets/mecClignoteGif.gif" alt="" id="solo">
 
   <div id="restOfBody">
-    <img :src="`assets/graph.png`" alt="" class="decoration">
+    <img :src="`assets/diag.gif`" alt="" class="decoration" id="diag">
     <div id="positionMskn">
       <img :src="`assets/deco.png`" alt="" class="decoration">
     </div>
+    
     <Slider/>
     <div id="objectivePositionning">
       <img :src="`assets/objectives.png`" alt="" class="decoration">
@@ -136,14 +132,31 @@ onMounted(()=>{
 
       <div id="bottom">
         <div id="filterBtn">
-            <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="showModal()"/>
-            <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" @click="displayBody('fat')"/>
-            <img :src="`/assets/objectiveFilter3.png`" alt="" class="filter" id="expand" @click="displayBody('expand')"/>
+            <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="bodyDisplayed=true"/>
+            <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" />
+            <img :src="`/assets/objectiveFilter3.png`" alt="" class="filter" id="expand" />
         </div>
-        <p v-if="showModal()" >ok</p>
+        
+        <div v-if="bodyDisplayed" id="bodyActivity">
+          <img src="/assets/steroids.png" id="steroidsPics"/>
+          <div id="objectiveChange" @click="bodyDisplayed=false">
+            <p>< Changer d'objectif</p>
+          </div>
+          <h2>LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
+          <Cursor/>
+          <div>
+            <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
+            <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
+            <button class="custom-button" id="heartBtn" v-if="bodyOrSqueleton" @click="bodyOrSqueleton=false"></button>
+            <img src="/assets/heart.png" alt="" v-if="bodyOrSqueleton===false" id="heart"/>
+          </div>
+        </div>
         <Testimonies/>
         <Alternatives/>
-        <Footer />
+        <!-- <Footer /> -->
+         <div id="footerDiv">
+           <img src="/assets/footer.png" alt="" id="footer">
+         </div>
       </div>
       
   </div>
@@ -151,11 +164,13 @@ onMounted(()=>{
 </template>
 
 <script>
-let bool =  true;
-const showModal=()=> {
-  bool=!bool
-  console.log(bool);
-  return bool
+export default {
+  data(){
+    return{
+      bodyDisplayed: false,
+      bodyOrSqueleton: true,
+    }
+  },
 }
 </script>
 
@@ -164,7 +179,108 @@ const showModal=()=> {
 @font-face {
   font-family: "Baloo 2";
   src:
-    url("@/assets/Baloo_2,Inter/Baloo_2/static/Baloo2-ExtraBold.ttf");
+    url("@/assets/BlackHanSans-Regular.ttf");
+}
+
+#steroidsPics{
+  width: 100%;
+  height: auto;
+  margin-right: 50px
+}
+
+#heart{
+  position: absolute;
+  margin-top: -12px;
+  margin-left: -411px;
+  height: 646px;
+  width: 477px;
+}
+
+#footerDiv{
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px
+}
+
+#solo{
+  opacity: 0;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#footer{
+  width: 100%;
+  height: auto;
+}
+
+#iso{
+  opacity: 0;
+  height: 500px;
+  width: 390px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#diag{
+  height: 400px;
+  width: 500px;
+}
+
+#heartBtn{
+  position: absolute;
+  margin-top: 173px;
+  margin-left: -213px;
+}
+
+.custom-button {
+  width: 50px;
+  height: 50px;
+  background-color: limegreen;
+  border: 10px solid rgba(173, 255, 47, 0.6);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.9),
+    0 0 15px limegreen;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-button:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 15px rgba(0, 0, 0, 1),
+    0 0 20px limegreen;
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+  box-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.7),
+    0 0 10px limegreen;
+}
+
+#bodyActivity{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bodyImg{
+  height: 560px;
+  width: 350px;
+}
+
+#objectiveChange{
+  background-color: #557BBD;
+  padding: 10px;
+  height: 48px;
+  width: 198px;
 }
 
 #filterBtn{
@@ -180,9 +296,9 @@ const showModal=()=> {
 }
 
 #positionMskn{
-  width: 100%;
   display: flex;
   justify-content: end;
+  width: 390px;
 }
 
 #objectivePositionning{
@@ -196,19 +312,9 @@ const showModal=()=> {
 }
 
 #bottom{
-  background-image: url("/assets/bgGreenPoints.png");
+  /* background-image: url("/assets/bgGreenPoints.png"); */
   margin-top: 50px;
   background-size: cover;
-}
-
-.notAloneAnim {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  cursor: pointer;
-  position: absolute;
-  top: 0px;
-  left: 0px;
 }
 
 #video{
@@ -221,7 +327,6 @@ const showModal=()=> {
 }
 
 #restOfBody{
-  margin-top: 225%;
   display: flex;
   flex-direction: column;
   align-items: center;

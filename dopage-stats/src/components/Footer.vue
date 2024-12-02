@@ -25,7 +25,7 @@ import { RouterLink, RouterView } from 'vue-router'
 footer{
     /* position: absolute; */
     /* top: 171%; */
-    background-color: #FEFFF2;
+    background-image: url("/assets/bgGreenPoints.png");
     padding: 20px;
 }
 

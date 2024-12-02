@@ -9,11 +9,32 @@ const alternatives=[
 
 <template>
     <div id="alternativeContainer">
-        <div>
+        <div id="allIsNotLostDiv">
             <p>Mais</p>
-            <p>tout n'est pas perdu</p>
+            <p id="lost">tout n'est pas perdu</p>
             <p id="end">Il y a des issues et des solutions</p>
-            <img src="../../public/assets/rectangle.png" alt="">
+            
+        </div>
+        <div id="rect">
+            <img src="../../public/assets/rectangle.png" alt="" id="rectImg">
+        </div>
+        <div id="gifs">
+            <div>
+                <img src="/assets/alternativesGifs/gifs1.gif" alt="" class="gifs">
+                <p>Pense à bien t’hydrater</p>
+            </div>
+            <div>
+                <img src="/assets/alternativesGifs/gifs2.gif" alt="" class="gifs">
+                <p>Habitue toi à une alimentation saine et variée</p>
+            </div>
+            <div>
+                <img src="/assets/alternativesGifs/gifs3.gif" alt="" class="gifs">
+                <p>Consulte un médecin</p>
+            </div>
+            <div>
+                <img src="/assets/alternativesGifs/gifs4.gif" alt="" class="gifs">
+                <p>Pratique une activité sportive régulière</p>
+            </div>
         </div>
         <div id="alternativeImages">
             <swiper
@@ -27,21 +48,112 @@ const alternatives=[
             </SwiperSlide>
             </swiper>
         </div>
-        <p>Tu as des problèmes avec le dopage ?</p>
-        <p>Connais quelqu’un de concerné ?</p>
-        <p>Ou tu veux juste te renseigner ?</p>
-        <br>
-        <br>
-        <span>01 40 62 76 78</span>
-        <p>Service médical de l’Agence Française de Lutte contre le Dopage (AFLD)</p>
-        <br>
-        <br>
-        <p>https://www.wada-ama.org/fr</p>
-        <p>Agence Mondiale Anti dopage (AMA)</p>
+        <div id="helpPhrases">
+            <p>Tu as des problèmes avec le dopage ?</p>
+            <br>
+            <p>Connais quelqu’un de concerné ?</p>
+            <br>
+            <p>Ou tu veux juste te renseigner ?</p>
+        </div>
+        <div id="helpLinks">
+            <div class="helpTitle">
+                <img src="/assets/icons/phone.png" alt="" class="icon">
+                <div id="helpTxt">
+                    <h2>01 40 62 76 78</h2>
+                    <br>
+                    <p class="des">Service médical de l’Agence Française de Lutte contre le Dopage (AFLD)</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="helpTitle">
+                <img src="/assets/icons/world.png" alt="" class="icon">
+                <div id="helpTxt">
+                    <a href="https://www.wada-ama.org/fr">https://www.wada-ama.org/fr</a>
+                    <br>
+                    <p class="des">Agence Mondiale Anti dopage (AMA)</p>
+                </div>
+            </div>
+            <br>
+        </div>
     </div>
 </template>
 
 <style>
+
+@font-face {
+  font-family: "InterLight";
+  src:
+    url("@/assets/Baloo_2,Inter/Inter/static/Inter_18pt-Light.ttf");
+}
+
+.des{
+    font-family: "InterLight";
+}
+
+#gifs p{
+    text-align: center;
+}
+
+#gifs div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 155px;
+}
+
+.gifs{
+    height: 140px;
+    width: 155px;
+}
+
+#gifs{
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#allIsNotLostDiv{
+    width: 70%;
+}
+
+#lost{
+    color: #10EC00;
+}
+
+#rectImg{
+    width: 100%;
+    height: auto;
+}
+
+#rect{
+    width: 100%;
+    padding: 75px;
+    display: flex;
+    justify-content: center
+}
+
+.icon{
+    height: 36px;
+    margin-right: 20px;
+}
+
+.helpTitle{
+    display: flex;
+}
+
+#helpPhrases{
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+#helpLinks{
+    width: 100%;
+    margin-bottom: 50px;
+    padding-left: 113px;
+    padding-right: 90px;
+}
 #end{
     text-align: end;
 }

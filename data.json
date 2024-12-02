@@ -20,34 +20,32 @@
     ],
     "celebs":{
         "women":{
-            "Tashi dans Challengers":{
-                "details": ["Préparation pendant 3 mois","Entraînement avec coach personnel 5 jours par semaine","Adoption d'un régime d'athlèthe pro"],
-                "subtitle": "Interprétée par Zendaya"
-            },
-            "Aline Dessine":{
-                "details": ["Prise de créatine une fois par jour","Prise de trois compléments alimentaires","5 ans de musculation"]
-            },
-            "Ashley Nocera":{
-                "details": ["cinq séances de musculation par semaine et une séance de cardio le samedi, avec repos uniquement le dimanche","Prises de suppléments (CLA, protéine de lactoziome...)","A appris à ce mettre en valeurs sur ses photos"]
-            },
-            "BLACK WIDOW":{
-                "details":["A pris 1 an avant d'atteindre ce physique"," Entraînement intensif avec coach personnel","Jeûnes d'au moins 12h par jour (allant de 14h à 15h parfois)"],
-                "subtitle":"interprétée par Scarlett Johansson"
-            }
+            
+            "Scarlette Johansson": [
+                "Régime hypocalorique: une méthode à 1200 calories pour affiner sa silhouette.",
+                "63.5 cm de tour de taille.",
+                "91.5 cm de tour de hanches."
+            ],
+            
+            "Ashley Nocera": [
+                "Séance intensive 6 jours par semaine (1 seul jour de repos).",
+                "Membres inférieurs travaillés 3 fois par semaine.",
+                "Consommation de 2500 kcal/jour pour une femme en moyenne."
+            ]
         },
         "men":{
-            "Togi":{
-                "details": ["Problème de reins, problème de sommeil", "Prend du clenbutérol (généralement un médicament pour les asthmatiques sévères, provoque des insuffisances cardiaques) + du cialis (généralement un médicament pour les troubles de l'érection)", "5300 ng/dcl de testostérone dans son sang, 5x plus élevé qu'un pro. Mais se dope quand même malgré les risques et ses soucis de santé"]
-            },
-            "HUGH JACKMAN":{
-                "details": ["Préparation de 6 mois avec régime et workout intensif", "Pas bu d'eau pendant 36h", "Recouvert de lubrifiant et d'huile"]
-            },
-            "Sam Sulek":{
-                "details": ["Caféine pour la tolérance de la douleur", "Acné sévère à cause des produits dopants"]
-            },
-            "Ronnie Coleman":{
-                "details": ["Eté suivit par des médecins et des nutritionnistes", "Prenait 6 repas par jours", "Buvait 7 à 11 litres d'eau par jours"]
-            }
+            "Rony Colman": [
+                "474 g de glucides.",
+                "9 repas/jour.",
+                "Environ 5500 calories par jour.",
+                "41.4 IMC."
+            ],
+            "Hugh Jackman": [
+                "Un régime pouvant atteindre 8000 calories par jour.",
+                "Il consommait quotidiennement entre 4 000 et 5 000 calories en moyenne.",
+                "En 5 repas par jour.",
+                "Protéines (300 grammes par jour)."
+            ]
         }
     }
 }
