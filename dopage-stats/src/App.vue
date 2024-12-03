@@ -55,9 +55,9 @@ onUpdated(()=>{
     });
   }
 
-  if (heartBtn) {
-    bodySliderSte.addEventListener('input', () => {
-      if (bodySliderSte.value < 50) {
+  if (bodySliderIns) {
+    bodySliderIns.addEventListener('input', () => {
+      if (bodySliderIns.value < 50) {
         heartDiv.innerHTML = `<img src="/assets/organs/heart.png" alt="" id="heart"/> <p class="info">${data.body.Insuline.coeur[0]}</p>`
         const info = document.querySelector('.info');
         info.style.position="absolute";
@@ -85,10 +85,10 @@ onUpdated(()=>{
     });
   }
 
-  if (bodySliderIns) {
+  if (bodySliderSte) {
 
-    bodySliderIns.addEventListener('input', () => {
-      if (bodySliderIns.value < 50) {
+    bodySliderSte.addEventListener('input', () => {
+      if (bodySliderSte.value < 50) {
         kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
         const info = document.querySelector('.info');
         info.style.position="absolute";
@@ -256,8 +256,8 @@ onMounted(()=>{
             <div>
               <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
               <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
-              <button class="custom-button" id="heartBtn" @click="bodyOrSqueleton=false"></button>
-              <div id="heartDiv"></div>
+              <button class="custom-button" id="kidneyBtn" @click="bodyOrSqueleton=false"></button>
+              <div id="kidneyDiv"></div>
             </div>
           </div>
           <div id="brainNumNCursor" class="bodyActivity">
@@ -294,8 +294,8 @@ onMounted(()=>{
           <div>
             <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
             <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
-            <button class="custom-button" id="kidneyBtn" @click="bodyOrSqueleton=false"></button>
-            <div id="kidneyDiv"></div>
+            <button class="custom-button" id="heartBtn" @click="bodyOrSqueleton=false"></button>
+            <div id="heartDiv"></div>
           </div>
           <div id="testimonies">
             <p id="doubt">Et si tu as encore des doutes,</p>
@@ -316,7 +316,7 @@ onMounted(()=>{
         <!-- <Footer /> -->
          <div id="footerDiv">
            <img src="/assets/footer.png" alt="" id="footer">
-           <a href="/assets/credits.html" id="credits">CREDITS</a>
+           <div id="creditsDiv"><a href="/assets/credits.html" id="credits">CREDITS</a></div>
          </div>
       </div>
       
@@ -330,7 +330,7 @@ export default {
     return{
       bodyDisplayedIns: false,
       bodyDisplayedSte: false,
-      r1bodyOrSqueleton: true,
+      bodyOrSqueleton: true,
       r1: true,
       r2: true,
       r3: true,
@@ -349,6 +349,11 @@ export default {
   font-family: "Black Han Sans";
   src:
     url("@/assets/BlackHanSans-Regular.ttf");
+}
+
+#creditsDiv{
+  margin-top: -149px;
+  margin-left: 20px;
 }
 
 #effects{
@@ -380,9 +385,6 @@ export default {
 
 #credits{
   font-family: "Black Han Sans";
-  position: absolute;
-  bottom:  -4528px;;
-  left: 16px;
   font-size: 12px;
 }
 

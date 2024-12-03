@@ -53,14 +53,16 @@
                   "Les épisodes d'hypoglycémie, caractérisés par une glycémie inférieure à 3.9 mmol/L, peuvent provoquer des troubles neurologiques comme des céphalées, confusion, troubles de la mémoire.",
                   "Le risque de coma hypoglycémique est principalement associé aux personnes utilisant de l'insuline, un coma peut survenir lorsque la glycémie descend en dessous de 2,3 à 2,7 mmol/L"
           ]
-},
+        },
         "Stéroides_anabolisants": {
           "rein":[
                   "33-50% des utilisateurs de stéroides anabolisant ont des soucis de filtration",
                   "Les utilisateurs de stéroides anabolisant ont 300% plus d'avoir des lésions rénale"
           ],
           "Testicules":[
-                  "50% des utilisateurs réguliers à fortes doses de stéroïdes anabolisants sont concernés par l'atrophie testiculaire et l'infertilité masculine"
+                    "100% des utilisateurs de stéroïdes anabolisants sont victime d'une réduction de testostérone",
+                    "50% des utilisateurs réguliers à fortes doses de stéroïdes anabolisants sont concernés par l'atrophie testiculaire et l'infertilité masculine"
+                  
           ]
         }
     }
