@@ -16,6 +16,7 @@ import { onMounted } from 'vue';
 #description{
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .slider-container {
@@ -27,7 +28,7 @@ import { onMounted } from 'vue';
 .slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 10px;
+  height: 20px;
   background: linear-gradient(to right, lightblue, blue);
   outline: none;
   margin: 0;
@@ -42,6 +43,7 @@ import { onMounted } from 'vue';
     border-radius: 50%;
     pointer-events: none; /* Prevent direct interaction */
     box-shadow: 0 0 10px rgba(173, 255, 47, 0.6);
+    transform: scale(2);
 }
 
 .slider::-moz-range-thumb {
@@ -50,6 +52,7 @@ import { onMounted } from 'vue';
     border-radius: 50%;
     pointer-events: none; /* Prevent direct interaction */
     box-shadow: 0 0 10px rgba(173, 255, 47, 0.6);
+    transform: scale(2);
 }
 
 /* Custom slider thumb */

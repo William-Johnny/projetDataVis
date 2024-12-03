@@ -138,22 +138,8 @@ onUpdated(()=>{
 })
 
 onMounted(()=>{
-  const text = document.querySelector("#text");
-  const img = document.querySelector("#img");
   const rest = document.getElementById("restOfBody");
-  text.style.zIndex = "1";
-  img.style.zIndex = "0";
   rest.style.marginTop="225%";
-
-  text.addEventListener("click", (e) => {
-      text.style.zIndex = "1";
-      img.style.zIndex = "0";
-  });
-
-  img.addEventListener("click", (e) => {
-      text.style.zIndex = "0";
-      img.style.zIndex = "1";
-  });
 
   document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
   const el = document.querySelector("body");
@@ -265,7 +251,7 @@ onMounted(()=>{
             <div id="objectiveChange" @click="bodyDisplayedSte=false">
               <a href="#objectivePositionning">< Changer d'objectif</a>
             </div>
-            <h2>LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
+            <h2 id="effects">LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
             <Cursor id="cursorSte"/>
             <div>
               <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
@@ -284,6 +270,18 @@ onMounted(()=>{
             </div>
             <Cursor id="cursorSteBrain"/>
           </div>
+          <div id="testimonies">
+            <p id="doubt">Et si tu as encore des doutes,</p>
+            <div id="rect">
+                <img src="/assets/doubtRect.png" alt="" id="rectImg">
+            </div>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_1recto.png`"  alt="" v-if="r5" @click="r5=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_1verso.png`"  alt="" v-if="r5===false" @click="r5=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_2recto.png`"  alt="" v-if="r6" @click="r6=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_2verso.png`"  alt="" v-if="r6===false" @click="r6=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_3recto.png`"  alt="" v-if="r7" @click="r7=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_3verso.png`"  alt="" v-if="r7===false" @click="r7=false"/>
+          </div>
         </div>
 
         <div v-if="bodyDisplayedIns" class="bodyActivity">
@@ -291,7 +289,7 @@ onMounted(()=>{
           <div id="objectiveChange" @click="bodyDisplayedIns=false">
             <a href="#objectivePositionning">< Changer d'objectif</a>
           </div>
-          <h2>LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
+          <h2 id="effects">LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
           <Cursor id="cursorIns"/>
           <div>
             <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
@@ -299,9 +297,21 @@ onMounted(()=>{
             <button class="custom-button" id="kidneyBtn" @click="bodyOrSqueleton=false"></button>
             <div id="kidneyDiv"></div>
           </div>
+          <div id="testimonies">
+            <p id="doubt">Et si tu as encore des doutes,</p>
+            <div id="rect">
+                <img src="/assets/doubtRect.png" alt="" id="rectImg">
+            </div>
+            <img :src="`/assets/testimonies/SA/temoignageSA_1recto.png`"  v-if="r1" @click="r1=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_1verso.png`"  v-if="r1===false" @click="r1=true" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_2recto.png`"  v-if="r2" @click="r2=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_2verso.png`"  v-if="r2===false" @click="r2=true" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_3recto.png`" v-if="r3" @click="r3=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_3verso.png`"  v-if="r3===false" @click="r3=true" alt="" />
+            <img :src="`assets/testimonies/SA/temoignageSA_4recto.png`"  v-if="r4" @click="r4=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_4verso.png`"  v-if="r4===false" @click="r4=true" alt="" />
+          </div>
         </div>
-
-        <Testimonies/>
         <Alternatives/>
         <!-- <Footer /> -->
          <div id="footerDiv">
@@ -320,7 +330,14 @@ export default {
     return{
       bodyDisplayedIns: false,
       bodyDisplayedSte: false,
-      bodyOrSqueleton: true,
+      r1bodyOrSqueleton: true,
+      r1: true,
+      r2: true,
+      r3: true,
+      r4: true,
+      r5: true,
+      r6: true,
+      r7: true
     }
   },
 }
@@ -332,6 +349,28 @@ export default {
   font-family: "Black Han Sans";
   src:
     url("@/assets/BlackHanSans-Regular.ttf");
+}
+
+#effects{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+
+#doubt{
+    margin-bottom: 25px;
+    margin-left: 50px;
+    width: 100%;
+}
+
+#testimonies > img{
+  height: 255px;
+}
+
+#testimonies{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #diagVid{
@@ -399,7 +438,7 @@ export default {
 
 #topElevator{
   position: sticky;
-  top: 0px;
+  top: 5px;
 }
 
 #logo{
@@ -521,6 +560,7 @@ export default {
   padding: 10px;
   height: 48px;
   width: 198px;
+  margin-top: 50px;
 }
 
 #filterBtn{

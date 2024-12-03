@@ -1,22 +1,15 @@
 {
-    "testimony":[
-        "I remember no one, not a teammate, a coach, or another parent offered [me] any help or sympathy after I tested positive. My parents tried to console me and tell me this was a life experience and that it would make me stronger. This was a really tough time. Everyone blamed me, and I blamed myself. I had let everyone down. I was trying to do my best and I still let everyone down",
-        
-        "I remember no one, not a teammate, a coach, or another parent offered [me] any help or sympathy after I tested positive ... everyone blamed me, and I blamed myself. I had let everyone down. I was trying to do my best and I still let everyone down", 
-        
-        "My parents felt a great responsibility as they had put their trust in our coach. My mom felt very sad and felt like it was her fault. There was no help provided to my family or to myself as the Athlete. My family and I were struggling mentally with the result of the [Positive Test].", 
-        
-        "Even now, my child remains deeply marked by what happened to them. They fell ill recently, nothing serious, but they refused to take the vitamins I offered them... I am still terribly angry despite the months that have passed. We will never know how [this happened] and it [has] kept us from moving on.",
-        
-        "When I learned about my [Positive Test], I was 15 years old. My coach notified me and then I didn't hear anything from him for days. I felt totally isolated. I stayed at the training centre for another few months. I remember being so happy when my parents picked me up to take me home. A couple of days before I left, the media started calling me. They wanted to know how and why I had tested positive. It was a really challenging situation for me.",
-        
-        "Training on my own, it was quite difficult. For the first several months I was quite depressed, and I found no energy or will to train. I found the sanction to be tougher on me mentally than it was physically. I struggled to keep up with school during my suspension. Instead of attending full-time I was only present two out of five days during the week. For the first six months … I stayed home … in bed.",
+    "temoignage_ste_an":[
+            ["Ethan Chalmers, 18 ans", "Le pire effet secondaire, c’était bien sûr l’acné. Greg Doucette a même fait une vidéo en me dénonçant à cause de ça. Et puis, je perds mes cheveux."],
+            ["Ethan Chalmers, 18 ans", "J'ai des crampes testiculaires qui apparaissent de manière aléatoire, je ne sais pas trop pourquoi. J’ai aussi eu des problèmes, par exemple, j’ai eu une tension artérielle à 180."],
+            ["Mike Israetel, 40 ans", "En ce moment [...] je suis sous une grosse dose d’anabolisants, et je sens clairement que mon esprit est embrouillé. Je n’arrive plus à ressentir un large éventail d’émotions. Je ne ressens que de la rage et de la frustration."],
+            ["Mike Israetel, 40 ans", "Chaque jour je suis envahi par l’anxiété. Je me réveille le matin en ayant peur [...] mes pensées deviennent envahissantes, souvent violentes. Quand ta testostérone est 25 fois plus élevée que la normale, tu t'attends à quoi ?"]
+        ],
+    "temoignage_ins":[
 
-        "My child had just obtained a scholarship to study abroad and [could] lose everything. They were stigmatized by other Athletes and other parents who spread rumors about them saying that they must have been doping for years and that I [as the parent] was responsible.",
-
-        "My child phoned me to tell me they had tested positive. I was on the street when I heard the news. I started to cry. I [have] lost members of my family but when I compare that experience to this, I can say that the moment I learned the news about my child's positive doping test [it] was the worst moment of my life.",
-
-        "During the investigation into my [case], one of my parents was also investigated … My National Anti-Doping Organization [claimed] my parent was involved in [my violation] … My parent was not provided with any assistance either, which was difficult for them mentally."
+            ["Anonyme", "Au début, je me sentais très bien, je dormais très bien... mais les effets secondaires, comme la rétention d'eau, étaient horribles."],
+            ["Ethan Chalmers, 18 ans", "J'étais comme une femme qui a ses règles, mon taux d'œstrogène était de 150. J'avais des sautes d'humeur [...] je me mettais à pleurer sans crier gare. J'avais aussi du lait qui sortait de mes seins."],
+            ["Togi, 21 ans", "Mon cholestérol est devenu pire que celui d’un mort. C’était un taux qu’on ne pourrait jamais humainement atteindre à moins d'abuser de drogues. Ça multipliait par 20 le risque que mes veines se bouchent."]
     ],
     "celebs":{
         "women":{
