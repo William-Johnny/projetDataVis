@@ -45,13 +45,12 @@
         "Insuline": {
           "coeur":[
                   "Le risque de maladies cardiovasculaires augmente de 100 à 200%",
-                  "L'excès d'insulines provoque  l'augmentation de l'indicateur de glucose. Si il est supérieur à 5,9 %, il y a huit fois plus de risque de développer un diabète",
-                  "Entre 12 et 55 % des cas d'insuffisance rénale terminale (IRT) sont dus uniquement au diabète.(IRT = les reins ne fonctionnent presque plus ou plus du tout)"
+                  "83% des utilisateurs souffre d'une diminution des capacités du coeur"
           ],
 
-          "cerveau":[
-                  "Les épisodes d'hypoglycémie, caractérisés par une glycémie inférieure à 3.9 mmol/L, peuvent provoquer des troubles neurologiques comme des céphalées, confusion, troubles de la mémoire.",
-                  "Le risque de coma hypoglycémique est principalement associé aux personnes utilisant de l'insuline, un coma peut survenir lorsque la glycémie descend en dessous de 2,3 à 2,7 mmol/L"
+          "pancreas":[
+                  "110% plus de risque de développer un cancer du pancréas",
+                  "8x plus de risque de développer un diabète"
           ]
         },
         "Stéroides_anabolisants": {

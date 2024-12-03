@@ -77,4 +77,6 @@ body {
   font-size: 15px;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background-image: url("/assets/bg.png");
+  background-size: cover;
 }

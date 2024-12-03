@@ -131,6 +131,7 @@ const alternatives=[
     width: 100%;
     padding-left: 25px;
     padding-right: 25px;
+    margin-top: 50px;
 }
 
 #lost{

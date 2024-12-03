@@ -20,6 +20,8 @@ onUpdated(()=>{
   const heartBtn =document.querySelector("#heartBtn");
   const kidneyBtn =document.querySelector("#kidneyBtn");
   const kidneyDiv = document.querySelector('#kidneyDiv');
+  const nutsBtn =document.querySelector("#nutsBtn");
+  const nutsDiv = document.querySelector('#nutsDiv');
 
   if (heartBtn) {
     heartBtn.addEventListener('click', () => {
@@ -38,10 +40,28 @@ onUpdated(()=>{
     });
   }
 
+  if (nutsBtn) {
+    nutsBtn.addEventListener('click', () => {
+      nutsBtn.style.opacity="0";
+      nutsDiv.innerHTML = `<img src="/assets/organs/nuts.png" alt="" id="nuts" class="organs"/> <p class="info">${data.body.Stéroides_anabolisants.Testicules[0]}}</p>`
+      const nuts = document.querySelector('#nuts');
+      nuts.style.position="absolute";
+      nuts.style.marginTop="350px";
+      nuts.style.marginLeft="-235px";
+      nuts.style.height="120px";
+      nuts.style.width="120px";
+
+      const info = document.querySelector('.info');
+      info.style.position="absolute";
+      info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+    });
+  }
+
   if (kidneyBtn) {
     kidneyBtn.addEventListener('click', () => {
       kidneyBtn.style.opacity="0";
-      kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
+      kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney" class="organs" /> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
       const kidney = document.querySelector('#kidney');
       kidney.style.position="absolute";
       kidney.style.marginTop="360px";
@@ -89,29 +109,54 @@ onUpdated(()=>{
 
     bodySliderSte.addEventListener('input', () => {
       if (bodySliderSte.value < 50) {
-        kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
-        const info = document.querySelector('.info');
-        info.style.position="absolute";
-        info.style.marginTop="300px";
-      info.style.marginLeft="-300px";
+        kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney" class="organs"/> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
+        nutsDiv.innerHTML = `<img src="/assets/organs/nuts.png" alt="" id="nuts" class="organs"/> <p class="info">${data.body.Stéroides_anabolisants.Testicules[0]}</p>`
+        const info = document.getElementsByClassName('info');
+        for(let i=0; i<info.length; i++)
+        {
+          info[i].style["position"] = "absolute";
+          info[i].style["marginTop"] = "300px";
+          info[i].style["marginLeft"] = "-300px";
+        }
+        
         const kidney = document.querySelector('#kidney');
-        kidney.style.position="absolute";
-        kidney.style.marginTop="360px";
-        kidney.style.marginLeft="-235px";
-        kidney.style.height="120px";
-        kidney.style.width="120px";
+      kidney.style.position="absolute";
+      kidney.style.marginTop="360px";
+      kidney.style.marginLeft="-235px";
+      kidney.style.height="120px";
+      kidney.style.width="120px";
+
+      const nuts = document.querySelector('#nuts');
+      nuts.style.position="absolute";
+      nuts.style.marginTop="350px";
+      nuts.style.marginLeft="-235px";
+      nuts.style.height="120px";
+      nuts.style.width="120px";
       } else {
-        kidneyDiv.innerHTML = `<img src="/assets/organs/kidneyR.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[1]}</p>`
+        kidneyDiv.innerHTML = `<img src="/assets/organs/kidneyR.png" alt="" id="kidney" class="organs"/> <p class="info">${data.body.Stéroides_anabolisants.rein[1]}</p>`
+        nutsDiv.innerHTML = `<img src="/assets/organs/nutsR.png" alt="" id="nuts" class="organs"/> <p class="info">${data.body.Stéroides_anabolisants.Testicules[1]}</p>`
+        
         const kidney = document.querySelector('#kidney');
-        kidney.style.position="absolute";
-        kidney.style.marginTop="360px";
-        kidney.style.marginLeft="-235px";
-        kidney.style.height="120px";
-        kidney.style.width="120px";
-        const info = document.querySelector('.info');
-        info.style.position="absolute";
-        info.style.marginTop="300px";
-      info.style.marginLeft="-300px";
+      kidney.style.position="absolute";
+      kidney.style.marginTop="360px";
+      kidney.style.marginLeft="-235px";
+      kidney.style.height="120px";
+      kidney.style.width="120px";
+
+      const nuts = document.querySelector('#nuts');
+      nuts.style.position="absolute";
+      nuts.style.marginTop="350px";
+      nuts.style.marginLeft="-235px";
+      nuts.style.height="120px";
+      nuts.style.width="120px";
+        
+      const info = document.getElementsByClassName('info');
+      for(let i=0, len=info.length; i<len; i++)
+        {
+          info[i].style["position"] = "absolute";
+          info[i].style["marginTop"] = "300px";
+          info[i].style["marginLeft"] = "-300px";
+        }
       }
     });
   }
@@ -255,9 +300,11 @@ onMounted(()=>{
             <Cursor id="cursorSte"/>
             <div>
               <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
-              <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
-              <button class="custom-button" id="kidneyBtn" @click="bodyOrSqueleton=false"></button>
+              <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" @click="bodyOrSqueleton=true; disappear('kidneyDiv'); disappear('nutsDiv')" class="bodyImg">
+              <button class="custom-button" id="kidneyBtn" v-if="bodyOrSqueleton" @click="bodyOrSqueleton=false; appear('kidneyDiv')"></button>
               <div id="kidneyDiv"></div>
+              <button class="custom-button" id="nutsBtn" v-if="bodyOrSqueleton" @click="bodyOrSqueleton=false; appear('nutsDiv')"></button>
+              <div id="nutsDiv"></div>
             </div>
           </div>
           <div id="brainNumNCursor" class="bodyActivity">
@@ -293,8 +340,8 @@ onMounted(()=>{
           <Cursor id="cursorIns"/>
           <div>
             <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
-            <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
-            <button class="custom-button" id="heartBtn" @click="bodyOrSqueleton=false"></button>
+            <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg" @click="bodyOrSqueleton=true; disappear('kidneyDiv')">
+            <button class="custom-button" id="heartBtn" v-if="bodyOrSqueleton" @click="bodyOrSqueleton=false; appear('kidneyDiv')" ></button>
             <div id="heartDiv"></div>
           </div>
           <div id="testimonies">
@@ -339,6 +386,15 @@ export default {
       r6: true,
       r7: true
     }
+  },methods: {
+    appear(id) {
+      const el = document.getElementById(id);
+      el.style.opacity="1";
+    },
+    disappear(id) {
+      const el = document.getElementById(id);
+      el.style.opacity="0";
+    },
   },
 }
 </script>
@@ -349,6 +405,22 @@ export default {
   font-family: "Black Han Sans";
   src:
     url("@/assets/BlackHanSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "InterLight";
+  src:
+    url("@/assets/Baloo_2,Inter/Inter/static/Inter_18pt-Light.ttf");
+}
+
+.info{
+  position:"absolute";
+  margin-top:"300px";
+  margin-left:"-300px";
+}
+
+#brainTxt{
+  font-family: "InterLight";
 }
 
 #creditsDiv{
@@ -395,6 +467,14 @@ export default {
 }
 
 #kidneyDiv{
+  opacity: 0;
+  position: absolute;
+  margin-top: -581px;
+  margin-left: 346px;
+}
+
+#nutsDiv{
+  opacity: 0;
   position: absolute;
   margin-top: -581px;
   margin-left: 346px;
@@ -417,11 +497,14 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 300px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #brainNum{
   display: flex;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .guyDiag{
@@ -509,13 +592,19 @@ export default {
 #kidneyBtn{
   position: absolute;
   margin-top: 305px;
-  margin-left: -204px;
+  margin-left: -190px;
 }
 
 #heartBtn{
   position: absolute;
   margin-top: 173px;
   margin-left: -213px;
+}
+
+#nutsBtn{
+  position: absolute;
+  margin-top: 387px;
+  margin-left: -215px
 }
 
 .custom-button {
@@ -595,7 +684,8 @@ export default {
 
 .decoration{
   margin-bottom: 75px;
-  margin-top: 75px;
+  margin-top: 263px;
+  width: 95%;
 }
 
 #bottom{
