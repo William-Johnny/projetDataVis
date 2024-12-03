@@ -3,6 +3,10 @@ import { onMounted } from 'vue';
 </script>
 
 <template>
+    <p id="doubt">Et si tu as encore des doutes,</p>
+    <div id="rect">
+        <img src="/assets/doubtRect.png" alt="" id="rectImg">
+    </div>
     <div id="positionDiv">
         <div id="testDiv">
             <div id="img" @click="handleClick">
@@ -17,6 +21,12 @@ import { onMounted } from 'vue';
 </template>
 
 <style>
+
+#doubt{
+    margin-bottom: 30px;
+    margin-left: 25px;
+}
+
 #greenPoints{
     opacity: 0.12;
     position: absolute;
@@ -26,7 +36,8 @@ import { onMounted } from 'vue';
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 #testDiv{

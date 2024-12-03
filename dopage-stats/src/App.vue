@@ -1,6 +1,6 @@
 <script setup>
 import { gsap } from 'gsap'
-import { onMounted } from 'vue';
+import { onMounted, onUpdated } from 'vue';
 import Button from '@/components/Button.vue';
 import Footer from '@/components/Footer.vue';
 import Testimonies from '@/components/Testimonies.vue';
@@ -8,9 +8,136 @@ import Alternatives from '@/components/Alternatives.vue';
 import Cursor from '@/components/Cursor.vue';
 import objectiveFilter from '@/components/Modal.vue';
 import Slider from '@/components/Slider.vue';
+import data from '../data.json';
+
+onUpdated(()=>{
+  const slider = document.querySelector('#cursorSteBrain input');
+  const bodySliderSte = document.querySelector('#cursorSte input');
+  const bodySliderIns = document.querySelector('#cursorIns input');
+  const image = document.querySelector('.guyDiag');
+  const div = document.querySelector('#brainInfoDiv');
+  const heartDiv = document.querySelector('#heartDiv');
+  const heartBtn =document.querySelector("#heartBtn");
+  const kidneyBtn =document.querySelector("#kidneyBtn");
+  const kidneyDiv = document.querySelector('#kidneyDiv');
+
+  if (heartBtn) {
+    heartBtn.addEventListener('click', () => {
+      heartBtn.style.opacity="0";
+      heartDiv.innerHTML = `<img src="/assets/organs/heart.png" alt="" id="heart"/> <p class="info">${data.body.Insuline.coeur[0]}</p>`
+      const heart = document.querySelector('#heart');
+      heart.style.position="absolute";
+      heart.style.marginTop="-12px";
+      heart.style.marginLeft="-411px";
+      heart.style.height="646px";
+      heart.style.width="477px";
+      const info = document.querySelector('.info');
+      info.style.position="absolute";
+      info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+    });
+  }
+
+  if (kidneyBtn) {
+    kidneyBtn.addEventListener('click', () => {
+      kidneyBtn.style.opacity="0";
+      kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
+      const kidney = document.querySelector('#kidney');
+      kidney.style.position="absolute";
+      kidney.style.marginTop="360px";
+      kidney.style.marginLeft="-235px";
+      kidney.style.height="120px";
+      kidney.style.width="120px";
+      const info = document.querySelector('.info');
+      info.style.position="absolute";
+      info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+    });
+  }
+
+  if (heartBtn) {
+    bodySliderSte.addEventListener('input', () => {
+      if (bodySliderSte.value < 50) {
+        heartDiv.innerHTML = `<img src="/assets/organs/heart.png" alt="" id="heart"/> <p class="info">${data.body.Insuline.coeur[0]}</p>`
+        const info = document.querySelector('.info');
+        info.style.position="absolute";
+        info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+        const heart = document.querySelector('#heart');
+        heart.style.position="absolute";
+        heart.style.marginTop="-12px";
+        heart.style.marginLeft="-411px";
+        heart.style.height="646px";
+        heart.style.width="477px";
+      } else {
+        heartDiv.innerHTML = `<img src="/assets/organs/heartR.png" alt="" id="heart"/> <p class="info">${data.body.Insuline.coeur[1]}</p>`
+        const heart = document.querySelector('#heart');
+        heart.style.position="absolute";
+        heart.style.marginTop="-12px";
+        heart.style.marginLeft="-411px";
+        heart.style.height="646px";
+        heart.style.width="477px";
+        const info = document.querySelector('.info');
+        info.style.position="absolute";
+        info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+      }
+    });
+  }
+
+  if (bodySliderIns) {
+
+    bodySliderIns.addEventListener('input', () => {
+      if (bodySliderIns.value < 50) {
+        kidneyDiv.innerHTML = `<img src="/assets/organs/kidney.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[0]}</p>`
+        const info = document.querySelector('.info');
+        info.style.position="absolute";
+        info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+        const kidney = document.querySelector('#kidney');
+        kidney.style.position="absolute";
+        kidney.style.marginTop="360px";
+        kidney.style.marginLeft="-235px";
+        kidney.style.height="120px";
+        kidney.style.width="120px";
+      } else {
+        kidneyDiv.innerHTML = `<img src="/assets/organs/kidneyR.png" alt="" id="kidney"/> <p class="info">${data.body.Stéroides_anabolisants.rein[1]}</p>`
+        const kidney = document.querySelector('#kidney');
+        kidney.style.position="absolute";
+        kidney.style.marginTop="360px";
+        kidney.style.marginLeft="-235px";
+        kidney.style.height="120px";
+        kidney.style.width="120px";
+        const info = document.querySelector('.info');
+        info.style.position="absolute";
+        info.style.marginTop="300px";
+      info.style.marginLeft="-300px";
+      }
+    });
+  }
+  
+  if (slider) {
+    slider.addEventListener('input', () => {
+      if (slider.value < 50) {
+        image.src = '/assets/20.png';
+        div.innerHTML = "<p id='brainPercentage'>20%</p> <p id='brainTxt'>des utilisateurs notent des changements d’humeur modérés, mais non agressifs.</p>"
+        const brainP = document.querySelector('#brainPercentage');
+        brainP.style.fontFamily="Black Han Sans";
+        brainP.style.color="#10EC00";
+        brainP.style.fontSize="100px";
+      } else {
+        image.src = '/assets/40.png'; 
+        div.innerHTML = "<p id='brainPercentage'>40%</p> <p id='brainTxt'>des utilisateurs à fortes doses mentionnent des épisodes d'irritabilité ou de comportement violent​</p>"
+        const brainP = document.querySelector('#brainPercentage');
+        brainP.style.fontFamily="Black Han Sans";
+        brainP.style.color="#10EC00";
+        brainP.style.fontSize="100px";
+      }
+    });
+  }
+})
 
 onMounted(()=>{
-
   const text = document.querySelector("#text");
   const img = document.querySelector("#img");
   const rest = document.getElementById("restOfBody");
@@ -27,16 +154,6 @@ onMounted(()=>{
       text.style.zIndex = "0";
       img.style.zIndex = "1";
   });
-
-  // const men = document.getElementById('men');
-  // men.addEventListener('click', () => {
-  //   celebsPhotos=[]
-  // });
-
-  // const women = document.getElementById('women');
-  // women.addEventListener('click', () => {
-  //   celebsPhotos=[]
-  // });
 
   document.querySelectorAll(".video").forEach((vid) => vid.muted = true);
   const el = document.querySelector("body");
@@ -62,6 +179,8 @@ onMounted(()=>{
       noShame.remove();
       isolation.remove();
       solo.addEventListener('click', () => {
+        const videoElem = document.getElementById("iso");
+        videoElem.play();
         const solo = document.getElementById("solo");
         solo.remove();
         let tl = gsap
@@ -70,11 +189,15 @@ onMounted(()=>{
           const sprite = document.getElementById("iso");
           const rest = document.getElementById("restOfBody");
           const el = document.querySelector("body");
-          sprite.addEventListener('click', () => {
-            const element = document.getElementById("iso"); element.remove();
+          setTimeout(() => {
+            const element = document.getElementById("iso"); 
+            element.remove();
             rest.style.removeProperty('margin-top');
             el.style.removeProperty('position');
-          });}, 
+            const diagVid = document.getElementById("diagVid");
+            diagVid.play();
+          }, 6000);
+          }, 
       })
       })
     }})
@@ -82,7 +205,6 @@ onMounted(()=>{
 </script>
 
 <template>
-
   <video id="video" autoplay muted playsinline>
     <source src="../public/assets/intro.mp4" type="video/mp4">
   </video> 
@@ -103,18 +225,19 @@ onMounted(()=>{
 
   <p class="phrase" id="noShame">PAS DE HONTE !</p>
   <p  id="isolation">Tu n’es pas un cas isolé.</p>
-  <img src="/assets/iso.gif" alt="" id="iso"/>
+  <video id="iso" class="video" muted playsinline>
+    <source src="/assets/iso.mp4" type="video/mp4">
+  </video> 
   <img src="/assets/mecClignoteGif.gif" alt="" id="solo">
 
   <div id="restOfBody">
-    <div id="balanceDiv">
-      <img :src="`assets/balance.png`" alt="">
-    </div>
-    <div id="septUnDiv">
-      <p id="septUn">71%</p>
-    </div>
-    <p>font “quelque chose” concernant leurs poids</p>
-    <img :src="`assets/diag.gif`" alt="" class="decoration" id="diag">
+    <div id="top"></div>
+    <a href="#top" id="topElevator">
+      <img src="/assets/logo.png" alt="" id="logo">
+    </a>
+    <video id="diagVid" class="video" muted playsinline>
+      <source src="/assets/diagVid.mp4" type="video/mp4">
+    </video>
     <div id="positionMskn">
       <img :src="`assets/deco.png`" alt="" class="decoration">
     </div>
@@ -122,33 +245,68 @@ onMounted(()=>{
     <Slider/>
     <div id="objectivePositionning">
       <img :src="`assets/objectives.png`" alt="">
+      <h2 class="objTxt" id="so">ET DONC </h2>
+      <h2 class="objTxt">QUELS SONT TES OBJECTIFS ?</h2>
     </div>
 
       <div id="bottom">
         <div id="filterBtn">
-            <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="bodyDisplayed=true"/>
-            <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" />
+          <a href="#steroidsPics">
+            <img :src="`/assets/objectiveFilter1.png`" alt="" class="filter" id="muscle" @click="bodyDisplayedSte=true; bodyOrSqueleton=true"/>
+          </a>
+          <a href="#steroidsPics">
+            <img :src="`/assets/objectiveFilter2.png`" alt="" class="filter" id="fat" @click="bodyDisplayedIns=true; bodyOrSqueleton=true"/>
+          </a>
         </div>
         
-        <div v-if="bodyDisplayed" id="bodyActivity">
-          <img src="/assets/steroids.png" id="steroidsPics"/>
-          <div id="objectiveChange" @click="bodyDisplayed=false">
-            <p>< Changer d'objectif</p>
+        <div v-if="bodyDisplayedSte" id="bodyActivity">
+          <div class="bodyActivity">
+            <img src="/assets/steroids.png" id="steroidsPics"/>
+            <div id="objectiveChange" @click="bodyDisplayedSte=false">
+              <a href="#objectivePositionning">< Changer d'objectif</a>
+            </div>
+            <h2>LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
+            <Cursor id="cursorSte"/>
+            <div>
+              <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
+              <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
+              <button class="custom-button" id="heartBtn" @click="bodyOrSqueleton=false"></button>
+              <div id="heartDiv"></div>
+            </div>
+          </div>
+          <div id="brainNumNCursor" class="bodyActivity">
+            <div id="brainNum">
+              <img src="/assets/20.png" class="guyDiag"/>
+              <div id="brainInfoDiv">
+                <p id='brainPercentage'>20%</p> 
+                <p id='brainTxt'>des utilisateurs notent des changements d’humeur modérés, mais non agressifs.</p>
+              </div>
+            </div>
+            <Cursor id="cursorSteBrain"/>
+          </div>
+        </div>
+
+        <div v-if="bodyDisplayedIns" class="bodyActivity">
+          <img src="/assets/insuline.png" id="steroidsPics"/>
+          <div id="objectiveChange" @click="bodyDisplayedIns=false">
+            <a href="#objectivePositionning">< Changer d'objectif</a>
           </div>
           <h2>LES EFFETS DES STEROIDES ANABOLISANT SUR TON CORPS...</h2>
-          <Cursor/>
+          <Cursor id="cursorIns"/>
           <div>
             <img :src="`assets/body.png`" v-if="bodyOrSqueleton" alt="" class="bodyImg"/>
             <img src="/assets/squeleton.png" alt="" id="squeleton" v-if="bodyOrSqueleton===false" class="bodyImg">
-            <button class="custom-button" id="heartBtn" v-if="bodyOrSqueleton" @click="bodyOrSqueleton=false"></button>
-            <img src="/assets/heart.png" alt="" v-if="bodyOrSqueleton===false" id="heart"/>
+            <button class="custom-button" id="kidneyBtn" @click="bodyOrSqueleton=false"></button>
+            <div id="kidneyDiv"></div>
           </div>
         </div>
+
         <Testimonies/>
         <Alternatives/>
         <!-- <Footer /> -->
          <div id="footerDiv">
            <img src="/assets/footer.png" alt="" id="footer">
+           <a href="/assets/credits.html" id="credits">CREDITS</a>
          </div>
       </div>
       
@@ -160,7 +318,8 @@ onMounted(()=>{
 export default {
   data(){
     return{
-      bodyDisplayed: false,
+      bodyDisplayedIns: false,
+      bodyDisplayedSte: false,
       bodyOrSqueleton: true,
     }
   },
@@ -175,11 +334,83 @@ export default {
     url("@/assets/BlackHanSans-Regular.ttf");
 }
 
+#diagVid{
+  height: 100%;
+  width: 100%;
+}
+
+#credits{
+  font-family: "Black Han Sans";
+  position: absolute;
+  bottom:  -4528px;;
+  left: 16px;
+  font-size: 12px;
+}
+
+#heartDiv{
+  position: absolute;
+  margin-top: -581px;
+  margin-left: 346px;
+}
+
+#kidneyDiv{
+  position: absolute;
+  margin-top: -581px;
+  margin-left: 346px;
+}
+
+#bodyActivity{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#brainPercentage{
+  font-family: "Black Han Sans";
+  color: #10EC00;
+  font-size: 100px;
+}
+
+#brainNumNCursor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+
+#brainNum{
+  display: flex;
+  width: 100%;
+}
+
+.guyDiag{
+  height: 270px;
+  width: 280px;
+}
+
+#so{
+  margin-top: 150px;
+}
+
+.objTxt{
+  text-align: center;
+  font-family: "Black Han Sans";
+}
+
+#topElevator{
+  position: sticky;
+  top: 0px;
+}
+
+#logo{
+  height: 25px;
+  width: 78px;
+}
+
 #balanceDiv{
   width: 100%;
   display: flex;
   justify-content: start;
-  padding-left: 50px;
 }
 
 #septUnDiv{
@@ -192,7 +423,7 @@ export default {
   font-family: "Black Han Sans";
   color: #10EC00;
   font-size: 100px;
-  margin-right: 85px;
+  margin-right: 30px;
 }
 
 #steroidsPics{
@@ -201,18 +432,8 @@ export default {
   margin-right: 50px
 }
 
-#heart{
-  position: absolute;
-  margin-top: -12px;
-  margin-left: -411px;
-  height: 646px;
-  width: 477px;
-}
-
 #footerDiv{
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px
 }
 
 #solo{
@@ -231,8 +452,8 @@ export default {
 
 #iso{
   opacity: 0;
-  height: 500px;
-  width: 390px;
+  height: auto;
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -240,8 +461,14 @@ export default {
 }
 
 #diag{
-  height: 400px;
-  width: 500px;
+  height: 307px;
+  width: 383px;
+}
+
+#kidneyBtn{
+  position: absolute;
+  margin-top: 305px;
+  margin-left: -204px;
 }
 
 #heartBtn{
@@ -278,7 +505,7 @@ export default {
     0 0 10px limegreen;
 }
 
-#bodyActivity{
+.bodyActivity{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -311,12 +538,17 @@ export default {
 #positionMskn{
   display: flex;
   justify-content: end;
-  width: 390px;
+  width: 100%;
+}
+
+#objectivePositionning img{
+  position: absolute;
+  z-index: -1;
 }
 
 #objectivePositionning{
-  height: 289px;;
-  width: 384px;
+  height: 225px;;
+  width: 100%;
 }
 
 .decoration{
@@ -381,7 +613,7 @@ export default {
 #noShame{
   transform: translate(-50%, calc(-50% + 150px));
   font-size: xx-large;
-  width: 290px;
+  width: 280px;
 }
 
 #isolation{

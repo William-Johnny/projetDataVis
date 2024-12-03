@@ -10,8 +10,10 @@ const alternatives=[
 <template>
     <div id="alternativeContainer">
         <div id="allIsNotLostDiv">
-            <p>Mais</p>
-            <p id="lost">tout n'est pas perdu</p>
+            <p class="but">MAIS</p>
+            <p id="lost" class="but" >TOUT N'EST PAS PERDU</p>
+            <br>
+            <br>
             <p id="end">Il y a des issues et des solutions</p>
             
         </div>
@@ -88,6 +90,16 @@ const alternatives=[
     url("@/assets/Baloo_2,Inter/Inter/static/Inter_18pt-Light.ttf");
 }
 
+@font-face {
+  font-family: "Black Han Sans";
+  src:
+    url("@/assets/BlackHanSans-Regular.ttf");
+}
+
+.but{
+    font-family: "Black Han Sans";
+}
+
 .des{
     font-family: "InterLight";
 }
@@ -109,13 +121,16 @@ const alternatives=[
 }
 
 #gifs{
-    width: 65%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    padding: 44px;
 }
 
 #allIsNotLostDiv{
-    width: 70%;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 #lost{
@@ -129,9 +144,10 @@ const alternatives=[
 
 #rect{
     width: 100%;
-    padding: 75px;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    padding: 40px;
+    padding-top: 0px;
 }
 
 .icon{
@@ -151,11 +167,12 @@ const alternatives=[
 #helpLinks{
     width: 100%;
     margin-bottom: 50px;
-    padding-left: 113px;
-    padding-right: 90px;
+    padding-left: 70px;
+    padding-right: 49px;
 }
 #end{
     text-align: end;
+    margin-bottom: 30px;
 }
 
 #alternativeContainer{

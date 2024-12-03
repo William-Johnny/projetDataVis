@@ -13,16 +13,6 @@ import { onMounted } from 'vue';
 </template>
 
 <style>
-/* General styling */
-body {
-  background-color: #1e1e1e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
 #description{
     display: flex;
     justify-content: space-between;

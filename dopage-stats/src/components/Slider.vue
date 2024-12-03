@@ -15,6 +15,15 @@ import 'swiper/css/pagination';
   left: -5px;
   top: 52px;
 }
+
+#infoAnim{
+  position: absolute;
+  width: 222px;
+  height: 308px;
+  left: -5px;
+  top: 15px;
+}
+
 .celebImg{
   position: relative;
   width: 225px;
@@ -31,6 +40,24 @@ import 'swiper/css/pagination';
     position: relative;
     top: 10px;
 }
+
+/* height: 48px;
+  width: 122px;
+  position: absolute;
+  margin-top: -304px;
+  margin-left: 112px; */
+
+  /* height: 48px;
+  width: 130px;
+  position: absolute;
+  margin-top: -208px;
+  margin-left: -4px; */
+
+  /* height: 48px;
+  width: 130px;
+  position: absolute;
+  margin-top: -128px;
+  margin-left: 103px; */
 </style>
   
 <template>
@@ -51,12 +78,6 @@ import 'swiper/css/pagination';
             alt=""
             class="celebImg"
             :id="photo[1]"
-            @click="togglePhotos(photo[1])"
-          />
-          <img
-            :src="`/assets/celebs/${photo[2]}`"
-            id="info"
-            v-if="photo[2]"
             @click="togglePhotos(photo[1])"
           />
         </div>
@@ -85,7 +106,8 @@ export default {
       // Default to the first set
       celebsPhotosRecto: [],
       isShowingVerso: false, // Track the current state
-      verso: false 
+      verso: false,
+      toggleInfo: false
     };
   },
   mounted() {
