@@ -322,12 +322,14 @@ onMounted(()=>{
             <div id="rect">
                 <img src="/assets/doubtRect.png" alt="" id="rectImg">
             </div>
-            <img :src="`/assets/testimonies/Ins/temoignageInsuline_1recto.png`"  alt="" v-if="r5" @click="r5=false"/>
-            <img :src="`/assets/testimonies/Ins/temoignageInsuline_1verso.png`"  alt="" v-if="r5===false" @click="r5=false"/>
-            <img :src="`/assets/testimonies/Ins/temoignageInsuline_2recto.png`"  alt="" v-if="r6" @click="r6=false"/>
-            <img :src="`/assets/testimonies/Ins/temoignageInsuline_2verso.png`"  alt="" v-if="r6===false" @click="r6=false"/>
-            <img :src="`/assets/testimonies/Ins/temoignageInsuline_3recto.png`"  alt="" v-if="r7" @click="r7=false"/>
-            <img :src="`/assets/testimonies/Ins/temoignageInsuline_3verso.png`"  alt="" v-if="r7===false" @click="r7=false"/>
+            <img :src="`/assets/testimonies/SA/temoignageSA_1recto.png`"  v-if="r1" @click="r1=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_1verso.png`"  v-if="r1===false" @click="r1=true" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_2recto.png`"  v-if="r2" @click="r2=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_2verso.png`"  v-if="r2===false" @click="r2=true" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_3recto.png`" v-if="r3" @click="r3=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_3verso.png`"  v-if="r3===false" @click="r3=true" alt="" />
+            <img :src="`assets/testimonies/SA/temoignageSA_4recto.png`"  v-if="r4" @click="r4=false" alt="" />
+            <img :src="`/assets/testimonies/SA/temoignageSA_4verso.png`"  v-if="r4===false" @click="r4=true" alt="" />
           </div>
         </div>
 
@@ -349,14 +351,12 @@ onMounted(()=>{
             <div id="rect">
                 <img src="/assets/doubtRect.png" alt="" id="rectImg">
             </div>
-            <img :src="`/assets/testimonies/SA/temoignageSA_1recto.png`"  v-if="r1" @click="r1=false" alt="" />
-            <img :src="`/assets/testimonies/SA/temoignageSA_1verso.png`"  v-if="r1===false" @click="r1=true" alt="" />
-            <img :src="`/assets/testimonies/SA/temoignageSA_2recto.png`"  v-if="r2" @click="r2=false" alt="" />
-            <img :src="`/assets/testimonies/SA/temoignageSA_2verso.png`"  v-if="r2===false" @click="r2=true" alt="" />
-            <img :src="`/assets/testimonies/SA/temoignageSA_3recto.png`" v-if="r3" @click="r3=false" alt="" />
-            <img :src="`/assets/testimonies/SA/temoignageSA_3verso.png`"  v-if="r3===false" @click="r3=true" alt="" />
-            <img :src="`assets/testimonies/SA/temoignageSA_4recto.png`"  v-if="r4" @click="r4=false" alt="" />
-            <img :src="`/assets/testimonies/SA/temoignageSA_4verso.png`"  v-if="r4===false" @click="r4=true" alt="" />
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_1recto.png`"  alt="" v-if="r5" @click="r5=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_1verso.png`"  alt="" v-if="r5===false" @click="r5=true"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_2recto.png`"  alt="" v-if="r6" @click="r6=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_2verso.png`"  alt="" v-if="r6===false" @click="r6=true"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_3recto.png`"  alt="" v-if="r7" @click="r7=false"/>
+            <img :src="`/assets/testimonies/Ins/temoignageInsuline_3verso.png`"  alt="" v-if="r7===false" @click="r7=true"/>
           </div>
         </div>
         <Alternatives/>
