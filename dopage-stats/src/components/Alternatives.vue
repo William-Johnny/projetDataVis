@@ -21,21 +21,25 @@ const alternatives=[
             <img src="../../public/assets/rectangle.png" alt="" id="rectImg">
         </div>
         <div id="gifs">
-            <div>
-                <img src="/assets/alternativesGifs/gifs1.gif" alt="" class="gifs">
-                <p>Pense à bien t’hydrater</p>
+            <div class="inline">
+                <div>
+                    <img src="/assets/alternativesGifs/gifs1.gif" alt="" class="gifs">
+                    <p>Pense à bien t’hydrater</p>
+                </div>
+                <div>
+                    <img src="/assets/alternativesGifs/gifs2.gif" alt="" class="gifs">
+                    <p>Habitue toi à une alimentation saine et variée</p>
+                </div>
             </div>
-            <div>
-                <img src="/assets/alternativesGifs/gifs2.gif" alt="" class="gifs">
-                <p>Habitue toi à une alimentation saine et variée</p>
-            </div>
-            <div>
-                <img src="/assets/alternativesGifs/gifs3.gif" alt="" class="gifs">
-                <p>Consulte un médecin</p>
-            </div>
-            <div>
-                <img src="/assets/alternativesGifs/gifs4.gif" alt="" class="gifs">
-                <p>Pratique une activité sportive régulière</p>
+            <div class="inline">
+                <div>
+                    <img src="/assets/alternativesGifs/gifs3.gif" alt="" class="gifs">
+                    <p>Consulte un médecin</p>
+                </div>
+                <div>
+                    <img src="/assets/alternativesGifs/gifs4.gif" alt="" class="gifs">
+                    <p>Pratique une activité sportive régulière</p>
+                </div>
             </div>
         </div>
         <div id="alternativeImages">
@@ -108,7 +112,12 @@ const alternatives=[
     text-align: center;
 }
 
-#gifs div{
+.inline{
+    display: flex;
+    width: 100%;
+}
+
+.inline div{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,8 +131,6 @@ const alternatives=[
 
 #gifs{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     padding: 44px;
 }
 
@@ -139,16 +146,8 @@ const alternatives=[
 }
 
 #rectImg{
-    width: 100%;
-    height: auto;
-}
-
-#rect{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    padding-top: 0px;
+    width: 350px;
+    height: 150px;
 }
 
 .icon{

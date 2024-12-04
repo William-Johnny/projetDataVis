@@ -272,6 +272,8 @@ onMounted(()=>{
     <div id="positionMskn">
       <img :src="`assets/deco.png`" alt="" class="decoration">
     </div>
+
+    <h2 id="forExample">PAR EXEMPLE SI TU POUVAIS CHOISIR TON CORPS DE REVE. QUEL SERAIS TON CHOIX ?</h2>
     
     <Slider/>
     <div id="objectivePositionning">
@@ -411,6 +413,13 @@ export default {
   font-family: "InterLight";
   src:
     url("@/assets/Baloo_2,Inter/Inter/static/Inter_18pt-Light.ttf");
+}
+
+#forExample{
+  text-align: center;
+  font-family: "Black Han Sans";
+  font-size: 16px;
+  margin-bottom: 50px;
 }
 
 .info{
