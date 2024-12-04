@@ -1,12 +1,8 @@
 <script setup>
 import { gsap } from 'gsap'
 import { onMounted, onUpdated } from 'vue';
-import Button from '@/components/Button.vue';
-import Footer from '@/components/Footer.vue';
-import Testimonies from '@/components/Testimonies.vue';
 import Alternatives from '@/components/Alternatives.vue';
 import Cursor from '@/components/Cursor.vue';
-import objectiveFilter from '@/components/Modal.vue';
 import Slider from '@/components/Slider.vue';
 import data from '../data.json';
 
@@ -392,10 +388,12 @@ export default {
     appear(id) {
       const el = document.getElementById(id);
       el.style.opacity="1";
+      el.style.zIndex="1";
     },
     disappear(id) {
       const el = document.getElementById(id);
       el.style.opacity="0";
+      el.style.zIndex="-1";
     },
   },
 }
@@ -473,6 +471,7 @@ export default {
   position: absolute;
   margin-top: -581px;
   margin-left: 346px;
+  z-index: -1;
 }
 
 #kidneyDiv{
@@ -480,6 +479,7 @@ export default {
   position: absolute;
   margin-top: -581px;
   margin-left: 346px;
+  z-index: -1;
 }
 
 #nutsDiv{
@@ -487,6 +487,7 @@ export default {
   position: absolute;
   margin-top: -581px;
   margin-left: 346px;
+  z-index: -1;
 }
 
 #bodyActivity{
