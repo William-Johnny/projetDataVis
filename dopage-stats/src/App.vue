@@ -166,6 +166,9 @@ onUpdated(()=>{
         brainP.style.fontFamily="Black Han Sans";
         brainP.style.color="#10EC00";
         brainP.style.fontSize="100px";
+        const brainTxt = document.querySelector('#brainTxt');
+        brainTxt.style.fontFamily= "InterLight";
+        
       } else {
         image.src = '/assets/40.png'; 
         div.innerHTML = "<p id='brainPercentage'>40%</p> <p id='brainTxt'>des utilisateurs à fortes doses mentionnent des épisodes d'irritabilité ou de comportement violent​</p>"
@@ -173,6 +176,8 @@ onUpdated(()=>{
         brainP.style.fontFamily="Black Han Sans";
         brainP.style.color="#10EC00";
         brainP.style.fontSize="100px";
+        const brainTxt = document.querySelector('#brainTxt');
+        brainTxt.style.fontFamily= "InterLight";
       }
     });
   }
