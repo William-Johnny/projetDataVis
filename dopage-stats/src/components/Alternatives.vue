@@ -148,6 +148,7 @@ const alternatives=[
 #rectImg{
     width: 350px;
     height: 150px;
+    margin-bottom: 50px;
 }
 
 .icon{
