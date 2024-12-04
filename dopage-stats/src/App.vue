@@ -538,7 +538,7 @@ export default {
 
 #topElevator{
   position: sticky;
-  top: 5px;
+  top: 30px;
 }
 
 #logo{

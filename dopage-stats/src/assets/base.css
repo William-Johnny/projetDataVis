@@ -79,4 +79,5 @@ body {
   scroll-behavior: smooth;
   background-image: url("/assets/bg.png");
   background-size: cover;
+  max-width: 600px;
 }

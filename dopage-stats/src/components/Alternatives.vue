@@ -115,6 +115,7 @@ const alternatives=[
 .inline{
     display: flex;
     width: 100%;
+    justify-content: center;
 }
 
 .inline div{
