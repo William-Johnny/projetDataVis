@@ -243,7 +243,7 @@ onMounted(()=>{
   </div>
 
   <div class="question" id="p2" >
-    <p>Soit ci, soit ça, fait ci, fait ça, devient plus beau, plus grand, plus fort...</p>
+    <p>Sois-ci, fait ça, devient plus beau, plus grand, plus fort...</p>
   </div>
 
   <div class="wrapper">
@@ -269,7 +269,7 @@ onMounted(()=>{
       <img :src="`assets/deco.png`" alt="" class="decoration">
     </div>
 
-    <h2 id="forExample">PAR EXEMPLE SI TU POUVAIS CHOISIR TON CORPS DE REVE. QUEL SERAIS TON CHOIX ?</h2>
+    <h2 id="forExample">PAR EXEMPLE SI TU POUVAIS CHOISIR TON CORPS DE REVE. QUEL SERAIT TON CHOIX ?</h2>
     
     <Slider/>
     <div id="objectivePositionning">
